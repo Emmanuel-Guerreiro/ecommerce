@@ -19,8 +19,10 @@ Los siguientes ecommerce's son interesantes porque apuntan a un mismo grupo de c
 
 Tambien tienen un conjunto de funcionalidades interesantes para imitar
 
-    [Cristobal Colon](https://www.cristobalcolon.com/)
-    [Rusty](https://rusty.com.au/)
-    [Billabong](https://www.billabong.cl/)
-    [Moov](https://www.moov.com.ar/)
-    [DigitalSport](https://www.digitalsport.com.ar/)
+[Cristobal Colon](https://www.cristobalcolon.com/)  
+[Rusty](https://rusty.com.au/)  
+[Billabong](https://www.billabong.cl/)  
+[Moov](https://www.moov.com.ar/)  
+[DigitalSport](https://www.digitalsport.com.ar/)
+
+https://www.markdownguide.org/basic-syntax/
