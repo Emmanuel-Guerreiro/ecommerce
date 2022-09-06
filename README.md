@@ -24,5 +24,3 @@ Tambien tienen un conjunto de funcionalidades interesantes para imitar
 [Billabong](https://www.billabong.cl/)  
 [Moov](https://www.moov.com.ar/)  
 [DigitalSport](https://www.digitalsport.com.ar/)
-
-https://www.markdownguide.org/basic-syntax/
