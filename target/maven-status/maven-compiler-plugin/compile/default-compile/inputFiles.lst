@@ -1,0 +1,11 @@
+/home/emma/Facultad/taller-prog/ecommerce/src/main/java/com/example/ecommerce/Producto/DTO/DTOCreateProducto.java
+/home/emma/Facultad/taller-prog/ecommerce/src/main/java/com/example/ecommerce/EcommerceApplication.java
+/home/emma/Facultad/taller-prog/ecommerce/src/main/java/com/example/ecommerce/Producto/ProductoService.java
+/home/emma/Facultad/taller-prog/ecommerce/src/main/java/com/example/ecommerce/AppConfig.java
+/home/emma/Facultad/taller-prog/ecommerce/src/main/java/com/example/ecommerce/Producto/ProductoController.java
+/home/emma/Facultad/taller-prog/ecommerce/src/main/java/com/example/ecommerce/Producto/Categoria/CategoriaRepository.java
+/home/emma/Facultad/taller-prog/ecommerce/src/main/java/com/example/ecommerce/Producto/Categoria/CategoriaService.java
+/home/emma/Facultad/taller-prog/ecommerce/src/main/java/com/example/ecommerce/Producto/Categoria/Categoria.java
+/home/emma/Facultad/taller-prog/ecommerce/src/main/java/com/example/ecommerce/Producto/ProductoRepository.java
+/home/emma/Facultad/taller-prog/ecommerce/src/main/java/com/example/ecommerce/Producto/DTO/DTOProductoUI.java
+/home/emma/Facultad/taller-prog/ecommerce/src/main/java/com/example/ecommerce/Producto/Producto.java
