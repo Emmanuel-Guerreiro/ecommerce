@@ -16,15 +16,4 @@ public class ClienteController {
     @Autowired
     ClienteController(ClienteService service){ this.service = service;}
 
-    @GetMapping("/{id}")
-    @ResponseBody
-    @ResponseStatus(HttpStatus.OK)
-    public Cliente getOne(@PathVariable Long id) { return this.service.findById(id);}
-
-    //@PostMapping()
-    //@ResponseBody
-    //@ResponseStatus(HttpStatus.CREATED)
-    //public Cliente create(@RequestBody DTOCreateCliente c){
-     //   System.out.println();
-    //}
 }
