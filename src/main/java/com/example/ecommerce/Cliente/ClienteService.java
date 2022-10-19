@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ClienteService {
+public class ClienteService implements BaseService<Cliente> {
     private ClienteRepository repository;
     private ModelMapper mapper;
 
@@ -19,4 +19,28 @@ public class ClienteService {
         this.mapper = mapper;
     }
 
+    @Override
+    public List<Cliente> findAll() throws Exception {
+        return null;
+    }
+
+    @Override
+    public Cliente findById(Long id) throws Exception {
+        return null;
+    }
+
+    @Override
+    public Cliente save(Cliente entity) throws Exception {
+        return null;
+    }
+
+    @Override
+    public Cliente update(Long id, Cliente entity) throws Exception {
+        return null;
+    }
+
+    @Override
+    public boolean delete(Long id) throws Exception {
+        return false;
+    }
 }
