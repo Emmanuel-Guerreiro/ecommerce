@@ -1,4 +1,4 @@
-package com.example.ecommerce.Producto.Cliente;
+package com.example.ecommerce.Cliente;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,9 +16,15 @@ public class ClienteController {
     @Autowired
     ClienteController(ClienteService service){ this.service = service;}
 
-    @GetMapping("")
+    @GetMapping("/{id}")
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
-    public List<Cliente> getAll(){return this.service.findAll();}
+    public Cliente getOne(@PathVariable Long id) { return this.service.findById(id);}
 
+    //@PostMapping()
+    //@ResponseBody
+    //@ResponseStatus(HttpStatus.CREATED)
+    //public Cliente create(@RequestBody DTOCreateCliente c){
+     //   System.out.println();
+    //}
 }
