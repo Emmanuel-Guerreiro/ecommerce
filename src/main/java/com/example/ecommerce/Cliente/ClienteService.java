@@ -1,11 +1,8 @@
 package com.example.ecommerce.Cliente;
 
-import com.example.ecommerce.Producto.ProductoRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class ClienteService {
@@ -18,10 +15,12 @@ public class ClienteService {
         this.mapper = mapper;
     }
 
-    //public Cliente create(DTOCreateCliente cliente){
-      //  Cliente c = mapper.map(cliente, Cliente.class);
-        //return this.repository.save(c);
-    //}
+    // public Cliente create(DTOCreateCliente cliente){
+    // Cliente c = mapper.map(cliente, Cliente.class);
+    // return this.repository.save(c);
+    // }
 
-    public Cliente findById(Long id) {return this.repository.findById(id).get();}
+    public Cliente findById(Long id) {
+        return this.repository.findById(id).get();
+    }
 }
