@@ -5,30 +5,35 @@
  */
 package com.example.ecommerce.Cliente;
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+
+import com.example.ecommerce.Base.Base;
+import com.example.ecommerce.Carrito.Carrito;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.envers.Audited;
 
 @Entity
+@Table(name = "Cliente")
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cliente implements Serializable {
+@Audited
+public class Cliente extends Base {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "nombre")
     private String nombre;
-    @Column(unique=true)
+    @Column(name = "email")
     private String email;
-    @Column(unique=true)
+    @Column(name = "usuario")
     private String usuario;
-    private String contraseña;
+    @Column(name = "contraseña")
+    private String contrasena;
+    //@OneToOne(cascade = CascadeType.ALL)
+    //@JoinColumn(name = "fk_carrito")
+    //private Carrito carrito;
+
 }

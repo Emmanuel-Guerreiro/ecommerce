@@ -7,13 +7,15 @@ import java.util.Set;
 import javax.persistence.*;
 
 import com.example.ecommerce.Producto.Categoria.Categoria;
+import org.hibernate.envers.Audited;
 
 @Entity
-@Table(name = "productos")
+@Table(name = "producto")
 @Setter
 @Getter
 @Data
 @NoArgsConstructor
+@Audited
 public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

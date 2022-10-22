@@ -5,31 +5,26 @@
  */
 package com.example.ecommerce.Carrito;
 
+import com.example.ecommerce.Base.Base;
 import com.example.ecommerce.Cliente.Cliente;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.envers.Audited;
 
 @Entity
+@Table(name = "carrito")
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Carrito {
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
+@Audited
+public class Carrito extends Base {
     @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "fk_cliente",nullable = false)
     private Cliente cliente;
