@@ -29,5 +29,5 @@ public class Cliente extends BaseEntity {
     private String usuario;
 
     @Column(nullable = false)
-    private String contraseña;
+    private String password;
 }

@@ -1,6 +1,6 @@
 package com.example.ecommerce.Cliente;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.example.ecommerce.Base.BaseRepository;
 
-public interface ClienteRepository extends JpaRepository<Cliente, Long> {
+public interface ClienteRepository extends BaseRepository<Cliente, Long> {
 }
