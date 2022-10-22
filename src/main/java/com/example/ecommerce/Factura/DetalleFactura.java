@@ -26,13 +26,13 @@ import lombok.Setter;
 public class DetalleFactura {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private int cantidad;
     private double precio;
+
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "fk_articulo")
     private Producto producto;
-   
-}
 
+}
