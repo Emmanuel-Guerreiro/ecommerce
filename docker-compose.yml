@@ -13,4 +13,3 @@ services:
       - MYSQL_PASSWORD=password
       - MYSQL_USER=user
       - MYSQL_DATABASE=database
-
