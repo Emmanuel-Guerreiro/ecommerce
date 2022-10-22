@@ -13,7 +13,7 @@ public abstract class BaseControllerImpl<E extends BaseEntity, ID extends Serial
     protected S service;
 
     @Autowired
-    BaseControllerImpl(S service) {
+    public BaseControllerImpl(S service) {
         this.service = service;
     }
 

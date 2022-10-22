@@ -2,9 +2,9 @@ package com.example.ecommerce.Producto;
 
 import java.util.List;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
+import com.example.ecommerce.Base.BaseRepository;
 
-public interface ProductoRepository extends PagingAndSortingRepository<Producto, Long> {
+public interface ProductoRepository extends BaseRepository<Producto, Long> {
     @Override
     List<Producto> findAll();
 

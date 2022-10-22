@@ -16,52 +16,60 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-//TODO: Handle errors
+import com.example.ecommerce.Base.BaseControllerImpl;
 
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping(path = "api/v1/producto")
-public class ProductoController {
-
-    private final ProductoService service;
+public class ProductoController extends BaseControllerImpl<Producto, Long, ProductoServiceImpl> {
 
     @Autowired
-    ProductoController(ProductoService service) {
-        this.service = service;
+    public ProductoController(ProductoServiceImpl service) {
+        super(service);
     }
 
     @GetMapping("")
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
-    public List<Producto> getAll() {
+    public List<Producto> getAll()
+            throws Exception {
+
         return this.service.findAll();
     }
 
     @GetMapping("/{id}")
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
-    public Producto getOne(@PathVariable Long id) {
+    public Producto getOne(@PathVariable Long id)
+            throws Exception {
+
         return this.service.findById(id);
     }
 
     @PostMapping()
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
-    public Producto create(@RequestBody Producto p) {
-        return this.service.create(p);
+    public Producto create(@RequestBody Producto p)
+            throws Exception {
+
+        return this.service.save(p);
     }
 
     @DeleteMapping("/{id}")
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
-    public Producto remove(@PathVariable Long id) {
-        return this.service.remove(id);
+    public Producto remove(@PathVariable Long id)
+            throws Exception {
+
+        return this.service.delete(id);
     }
 
     @PutMapping("/{id}")
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
-    public Producto update(@PathVariable Long id, @RequestBody Producto p) {
+    public Producto update(@PathVariable Long id, @RequestBody Producto p)
+            throws Exception {
+
         return this.service.update(id, p);
     }
 }
