@@ -1,16 +1,24 @@
 package audit;
 
-import com.example.ecommerce.Base.Base;
-import config.CustomRevisionListener;
-import lombok.Data;
-import lombok.Getter;
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import org.hibernate.envers.RevisionEntity;
 import org.hibernate.envers.RevisionNumber;
 import org.hibernate.envers.RevisionTimestamp;
 
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.Date;
+import config.CustomRevisionListener;
+import lombok.Data;
 
 @Entity
 @Table(name = "REVISION_INFO")

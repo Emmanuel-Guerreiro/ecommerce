@@ -2,7 +2,6 @@ package com.example.ecommerce.Cliente;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.validation.constraints.Size;
 
 import com.example.ecommerce.Base.BaseEntity;
 
@@ -25,7 +24,6 @@ public class Cliente extends BaseEntity {
     private String email;
 
     @Column(unique = true, nullable = false)
-    @Size(max = 256)
     private String usuario;
 
     @Column(nullable = false)

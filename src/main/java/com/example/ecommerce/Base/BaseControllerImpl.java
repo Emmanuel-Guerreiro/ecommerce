@@ -53,12 +53,13 @@ public abstract class BaseControllerImpl<E extends BaseEntity, ID extends Serial
     }
 
     @Override
-    @GetMapping("/{id}")
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
-    public E getOne(@PathVariable ID idE) throws Exception {
+    @GetMapping("/{id}")
+    public E getOne(@PathVariable ID id) throws Exception {
 
-        return this.service.findById(idE);
+        return this.service.findById(id);
+
     }
 
     @Override
@@ -75,7 +76,7 @@ public abstract class BaseControllerImpl<E extends BaseEntity, ID extends Serial
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     public E update(@PathVariable ID id, E entity) throws Exception {
-
+        System.out.println(id);
         return this.service.update(id, entity);
     }
 }

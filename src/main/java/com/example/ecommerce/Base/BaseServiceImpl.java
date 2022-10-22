@@ -32,6 +32,7 @@ public abstract class BaseServiceImpl<E extends BaseEntity, ID extends Serializa
 
     @Override
     public E findById(ID id) throws Exception {
+
         return this.repository.findById(id).get();
     }
 

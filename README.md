@@ -50,3 +50,11 @@ Si no se tiene un IDE que provea la funcionalidad correr en la terminal
 ```
 mvn spring-boot:run
 ```
+
+## Postman
+
+Se han realizado un conjunto de pruebas con Postman
+
+Las pruebas estan dentro del directorio [`/postman/`](/postman/)
+
+Para poder utilizarlas dentro de una instancia propia de postman, leer la [documentacion dentro del directorio](/postman/README.md)
