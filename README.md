@@ -24,3 +24,29 @@ Tambien tienen un conjunto de funcionalidades interesantes para imitar
 [Billabong](https://www.billabong.cl/)  
 [Moov](https://www.moov.com.ar/)  
 [DigitalSport](https://www.digitalsport.com.ar/)
+
+## Como correr el sistema
+
+### Requerimientos
+
+- Java 11
+- maven
+- Docker + Docker compose -opcional-
+
+### Pasos a seguir
+
+Esta disponible un `docker-compose.yml` que provee la posibilidad de levantar una instancia de MySQL
+
+Para poder levantar el contenedor
+
+```
+sudo docker-compose up --build
+```
+
+Una vez corriendo la instancia de MySQL correr la aplicacion
+
+Si no se tiene un IDE que provea la funcionalidad correr en la terminal
+
+```
+mvn spring-boot:run
+```

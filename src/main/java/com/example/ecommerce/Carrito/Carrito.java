@@ -5,6 +5,7 @@
  */
 package com.example.ecommerce.Carrito;
 
+import com.example.ecommerce.Base.BaseEntity;
 import com.example.ecommerce.Cliente.Cliente;
 
 import java.io.Serializable;
@@ -28,13 +29,12 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Carrito implements Serializable {
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
+public class Carrito extends BaseEntity {
+
     @OneToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "fk_cliente",nullable = false)
+    @JoinColumn(name = "fk_cliente", nullable = false)
     private Cliente cliente;
+
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DetalleCarrito> detalles = new ArrayList<DetalleCarrito>();
 }
