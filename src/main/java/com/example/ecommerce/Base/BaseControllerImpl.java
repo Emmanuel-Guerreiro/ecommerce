@@ -1,11 +1,11 @@
 package com.example.ecommerce.Base;
 
 import java.io.Serializable;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.http.HttpStatus;
 
 public abstract class BaseControllerImpl<E extends BaseEntity, ID extends Serializable, S extends BaseService<E, ID>>
         implements BaseController<E, ID> {
@@ -35,21 +34,12 @@ public abstract class BaseControllerImpl<E extends BaseEntity, ID extends Serial
 
     // Todo: Acomodar esto cuadno este implementado correctamente la paginacio
     @Override
-    @GetMapping("/paged")
-    @ResponseBody
-    @ResponseStatus(HttpStatus.OK)
-    public Page<E> getAll(Pageable pageable) throws Exception {
-
-        return this.service.findAll(pageable);
-    }
-
-    @Override
     @GetMapping("")
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
-    public List<E> getAll() throws Exception {
-
-        return this.service.findAll();
+    public Page<E> getAll(Pageable pageable) throws Exception {
+        System.out.print(pageable.toString());
+        return this.service.findAll(pageable);
     }
 
     @Override
