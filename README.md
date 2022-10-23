@@ -58,3 +58,9 @@ Se han realizado un conjunto de pruebas con Postman
 Las pruebas estan dentro del directorio [`/postman/`](/postman/)
 
 Para poder utilizarlas dentro de una instancia propia de postman, leer la [documentacion dentro del directorio](/postman/README.md)
+
+## Notas finales
+
+Respecto a los endpoints, algunos tienen algunos problemas a solucionar (especificamente los de agregar item a un carrito, o pagar un carrito)
+
+Estos seran solucionados mas facilmente cuando se pueda implementar los DTOS

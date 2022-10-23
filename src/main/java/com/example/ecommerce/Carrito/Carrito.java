@@ -17,6 +17,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.Singular;
 
 @Entity
 @Setter
@@ -29,6 +30,16 @@ public class Carrito extends BaseEntity {
     @JoinColumn(name = "fk_cliente", nullable = false)
     private Cliente cliente;
 
+    @Singular
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DetalleCarrito> detalles = new ArrayList<DetalleCarrito>();
+
+    public void addDettale(DetalleCarrito detalleCarrito) {
+
+        if (this.detalles == null)
+            this.detalles = new ArrayList<DetalleCarrito>();
+
+        this.detalles.add(detalleCarrito);
+    }
+
 }

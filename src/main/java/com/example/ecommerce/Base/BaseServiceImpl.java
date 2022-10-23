@@ -12,8 +12,12 @@ import org.springframework.transaction.annotation.Transactional;
 public abstract class BaseServiceImpl<E extends BaseEntity, ID extends Serializable, R extends BaseRepository<E, ID>>
         implements BaseService<E, ID> {
 
-    @Autowired
     protected R repository;
+
+    @Autowired
+    public BaseServiceImpl(R repository) {
+        this.repository = repository;
+    }
 
     @Override
     public E delete(ID id) throws Exception {

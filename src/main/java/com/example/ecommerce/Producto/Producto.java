@@ -25,6 +25,9 @@ public class Producto extends BaseEntity {
     @Column(name = "nombre")
     private String nombre;
 
+    @Column(name = "stock")
+    private int stock;
+
     // @ManyToMany
     // @JoinTable(name = "producto_categoria", joinColumns = @JoinColumn(name =
     // "producto_id"), inverseJoinColumns = @JoinColumn(name = "categoria_id"))
