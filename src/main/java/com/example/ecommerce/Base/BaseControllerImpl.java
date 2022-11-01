@@ -57,7 +57,6 @@ public abstract class BaseControllerImpl<E extends BaseEntity, ID extends Serial
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
     public E save(E entity) throws Exception {
-
         return this.service.save(entity);
     }
 

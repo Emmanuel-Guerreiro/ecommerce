@@ -1,0 +1,18 @@
+<article th:fragment="card" class="card text-black m-1" style="width: 12rem">
+  <img
+    src="https://placekitten.com/100"
+    class="card-img-top"
+    style="height: 8rem"
+  />
+  <section class="card-body">
+    <h5 th:text="${producto.nombre}" class="card-title text-decoration-none">
+      Nombre
+    </h5>
+    <p
+      th:text="'Precio: $' + ${producto.precio}"
+      class="card-title text-decoration-none"
+    >
+      Precio
+    </p>
+  </section>
+</article>

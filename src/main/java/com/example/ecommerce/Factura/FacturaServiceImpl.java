@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.example.ecommerce.Factura;
 
 import java.util.Date;
@@ -40,7 +35,8 @@ public class FacturaServiceImpl extends BaseServiceImpl<Factura, Long, FacturaRe
 
         c.getDetalles().forEach(detalleC -> {
 
-            DetalleFactura detalleF = DetalleFactura.builder()
+            DetalleFactura detalleF = DetalleFactura
+                    .builder()
                     .producto(detalleC.getProducto())
                     .cantidad(detalleC.getCantidad())
                     .precio(detalleC.getProducto().getPrecio())

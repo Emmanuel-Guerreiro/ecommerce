@@ -1,6 +1,7 @@
 package com.example.ecommerce.Base;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,11 @@ public abstract class BaseServiceImpl<E extends BaseEntity, ID extends Serializa
     @Override
     public Page<E> findAll(Pageable pageable) throws Exception {
         return this.repository.findAll(pageable);
+    }
+
+    @Override
+    public List<E> findAll() throws Exception {
+        return this.repository.findAll();
     }
 
     @Override
