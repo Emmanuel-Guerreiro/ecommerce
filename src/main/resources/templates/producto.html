@@ -19,32 +19,40 @@
   </head>
 
   <body>
+    <header>
+      <nav th:replace="components/navbar :: nav_bar" />
+    </header>
     <main
-      class="d-flex flex-column justify-content-center"
-      style="height: 100vh; width: 100vh"
+      class="d-flex flex-column align-items-center justify-content-center"
+      style="min-height: 80vh"
     >
-      <section class="rounded align-self-center">
-        <form class="d-flex flex-column align-items-center">
-          <div class="d-flex flex-column align-items-start my-1">
-            <label for="user">Usuario</label>
-            <input id="user" placeholder="Usuario" class="rounded" />
+      <section class="w-75">
+        <div th:replace="components/breadcrumb :: breadcrumb"></div>
+        <section class="d-flex flex-row justify-content-between w-100">
+          <img th:src="${data.imagen}" class="img-fluid rounded" />
+          <div class="d-flex flex-column">
+            <h3 th:text="${data.nombre}">Productos</h3>
+            <p class="fw-normal" th:text="'$' + ${data.precio}">Precio</p>
+            <span class="d-flex flex-row align-items-center">
+              <label for="cantidad" class="form-label mb-0">Cantidad: </label>
+              <input
+                class="form-control"
+                type="number"
+                style="border: none; width: fit-content"
+                min="1"
+                id="cantidad"
+                max="${data.maxCant}"
+                value="1"
+              />
+            </span>
+            <button type="button" class="btn btn-primary">Comprar</button>
           </div>
-          <div class="d-flex flex-column align-items-start my-1">
-            <label for="pass">Contrasena</label>
-            <input id="pass" placeholder="Contrasena" class="rounded" />
-          </div>
-          <input type="submit" placeholder="Entrar" class="my-1" />
-        </form>
-        <span class="d-flex flex-row"
-          ><p class="mr-2">No tienes una cuenta?</p>
-          <a th:href="@{/registrarse}" class="ml-2">Registrarse</a></span
-        >
+        </section>
       </section>
     </main>
     <footer>
       <!-- place footer here -->
     </footer>
-
     <!-- Bootstrap JavaScript Libraries -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

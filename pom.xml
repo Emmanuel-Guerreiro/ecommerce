@@ -67,6 +67,8 @@
     </dependencies>
 
     <build>
+        <finalName>ecommerce</finalName>
+
         <plugins>
             <plugin>
                 <groupId>org.asciidoctor</groupId>
@@ -105,6 +107,7 @@
                     </excludes>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 

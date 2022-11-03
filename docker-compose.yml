@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  mysql:
+  localhost:
     container_name: Taller_Integrador
     image: mysql:8
     ports:
@@ -13,3 +13,10 @@ services:
       - MYSQL_PASSWORD=password
       - MYSQL_USER=user
       - MYSQL_DATABASE=database
+
+  # web:
+  #   build: .
+  #   ports:
+  #     - "9000:9000"
+  #   depends_on:
+  #     - localhost

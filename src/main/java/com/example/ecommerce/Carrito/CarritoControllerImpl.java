@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.ecommerce.Base.BaseControllerImpl;
-import com.example.ecommerce.Producto.ProductoService;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -21,7 +20,7 @@ public class CarritoControllerImpl extends BaseControllerImpl<Carrito, Long, Car
         CarritoController {
 
     @Autowired
-    public CarritoControllerImpl(CarritoServiceImpl service, ProductoService productoService) {
+    public CarritoControllerImpl(CarritoServiceImpl service) {
         super(service);
 
     }

@@ -1,0 +1,7 @@
+<div th:fragment="breadcrumb" class="d-flex flex-row">
+  <a class="fs-5 text-dark" th:href="@{/}" style="text-decoration: none"
+    >Productos</a
+  >
+  <p class="mx-2 fs-5">></p>
+  <p th:text="${data.nombre}" class="fs-5">nombre</p>
+</div>
