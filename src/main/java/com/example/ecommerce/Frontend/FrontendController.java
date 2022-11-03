@@ -7,7 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.ecommerce.Categoria.Categoria;
+import com.example.ecommerce.Categoria.CategoriaServiceImpl;
 import com.example.ecommerce.Frontend.DTO.DTOProductoUI;
 import com.example.ecommerce.Producto.Producto;
 import com.example.ecommerce.Producto.ProductoServiceImpl;
@@ -15,20 +18,29 @@ import com.example.ecommerce.Producto.ProductoServiceImpl;
 @Controller
 public class FrontendController {
 
+    CategoriaServiceImpl categoriaService;
     ProductoServiceImpl productoService;
     FrontendService service;
 
     @Autowired
-    public FrontendController(FrontendService service, ProductoServiceImpl productoService) {
+    public FrontendController(
+            FrontendService service,
+            ProductoServiceImpl productoService,
+            CategoriaServiceImpl categoriaService) {
         this.service = service;
         this.productoService = productoService;
+        this.categoriaService = categoriaService;
     }
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model,
+            @RequestParam(name = "categoria", required = false) Long categoria) {
         try {
-            List<Producto> productos = productoService.findAll();
+            List<Producto> productos = productoService.findAllByCategory(categoria);
+            List<Categoria> categorias = categoriaService.findAll();
+
             model.addAttribute("productos", productos);
+            model.addAttribute("categorias", categorias);
 
             return "index";
         } catch (Exception e) {

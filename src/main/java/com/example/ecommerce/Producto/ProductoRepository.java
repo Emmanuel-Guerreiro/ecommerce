@@ -8,4 +8,5 @@ public interface ProductoRepository extends BaseRepository<Producto, Long> {
     @Override
     List<Producto> findAll();
 
+    List<Producto> findByCateogriaId(Long id);
 }

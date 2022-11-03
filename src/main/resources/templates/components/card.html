@@ -1,4 +1,9 @@
-<article th:fragment="card" class="card text-black m-1" style="width: 12rem">
+<a
+  th:fragment="card"
+  th:href="@{/productos/{id}(id=${producto.id})}"
+  class="card text-black m-1"
+  style="width: 12rem; text-decoration: none; cursor: pointer"
+>
   <img
     src="https://placekitten.com/100"
     class="card-img-top"
@@ -15,4 +20,4 @@
       Precio
     </p>
   </section>
-</article>
+</a>

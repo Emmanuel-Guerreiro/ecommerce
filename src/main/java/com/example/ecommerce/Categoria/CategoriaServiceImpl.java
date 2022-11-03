@@ -1,19 +1,23 @@
-package com.example.ecommerce.Producto.Categoria;
+package com.example.ecommerce.Categoria;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-@Transactional
-public class CategoriaService {
+import com.example.ecommerce.Base.BaseServiceImpl;
 
-    private CategoriaRepository repository;
+@Service
+@Transactional
+public class CategoriaServiceImpl
+        extends BaseServiceImpl<Categoria, Long, CategoriaRepository>
+        implements CategoriaService {
 
     @Autowired
-    CategoriaService(CategoriaRepository repository) {
-        this.repository = repository;
+    CategoriaServiceImpl(CategoriaRepository repository) {
+        super(repository);
     }
 
     public Categoria findOrCreate(String nombre) {

@@ -9,8 +9,15 @@
     Filtrar
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
+    <div th:each="categoria : ${categorias}">
+      <li>
+        <a
+          class="dropdown-item"
+          th:href="@{/(categoria=${categoria.id})}"
+          th:text="${categoria.nombre}"
+          >Categoria</a
+        >
+      </li>
+    </div>
   </ul>
 </div>

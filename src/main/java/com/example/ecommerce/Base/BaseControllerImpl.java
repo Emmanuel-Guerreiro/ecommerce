@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
@@ -53,10 +54,10 @@ public abstract class BaseControllerImpl<E extends BaseEntity, ID extends Serial
     }
 
     @Override
-    @PostMapping("")
+    @PostMapping("/save")
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
-    public E save(E entity) throws Exception {
+    public E save(@RequestBody E entity) throws Exception {
         return this.service.save(entity);
     }
 
@@ -64,7 +65,7 @@ public abstract class BaseControllerImpl<E extends BaseEntity, ID extends Serial
     @PutMapping("/{id}")
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
-    public E update(@PathVariable ID id, E entity) throws Exception {
+    public E update(@PathVariable ID id, @RequestBody E entity) throws Exception {
         System.out.println(id);
         return this.service.update(id, entity);
     }
