@@ -9,6 +9,7 @@
     Filtrar
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a th:href="@{/}" class="dropdown-item">Todos</a></li>
     <div th:each="categoria : ${categorias}">
       <li>
         <a

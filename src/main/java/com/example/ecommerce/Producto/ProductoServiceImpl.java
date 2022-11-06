@@ -41,4 +41,13 @@ public class ProductoServiceImpl extends BaseServiceImpl<Producto, Long, Product
         return repository.findByCateogriaId(categoria);
 
     }
+
+    // Busca similares pero no el mismo item
+    public List<Producto> findSimilar(Categoria categoria) {
+        List<Producto> similares = repository.findByCateogriaId(categoria.getId());
+
+        similares.removeIf(p -> p.getCateogria().getId() == categoria.getId());
+
+        return similares;
+    }
 }

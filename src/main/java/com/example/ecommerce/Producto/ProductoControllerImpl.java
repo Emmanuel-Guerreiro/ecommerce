@@ -3,6 +3,7 @@ package com.example.ecommerce.Producto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,4 +34,13 @@ public class ProductoControllerImpl
         return this.service.save(entity);
     }
 
+    @PostMapping("/prueba")
+    @ResponseBody
+    @ResponseStatus(HttpStatus.CREATED)
+    public int probando(@ModelAttribute DTOCreateProducto dto) {
+        System.out.println("*****************************");
+        System.out.println(dto.getNombre());
+        System.out.println("*****************************");
+        return 1;
+    }
 }

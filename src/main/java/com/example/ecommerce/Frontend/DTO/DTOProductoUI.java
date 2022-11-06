@@ -1,5 +1,9 @@
 package com.example.ecommerce.Frontend.DTO;
 
+import java.util.List;
+
+import com.example.ecommerce.Producto.Producto;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -16,4 +20,6 @@ public class DTOProductoUI {
     private float precio;
     private int maxCant;
     private String imagen;
+    private Long categoria;
+    private List<Producto> similares;
 }

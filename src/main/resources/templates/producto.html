@@ -28,24 +28,11 @@
     >
       <section class="w-75">
         <div th:replace="components/breadcrumb :: breadcrumb"></div>
-        <section class="d-flex flex-row justify-content-between w-100">
-          <img th:src="${data.imagen}" class="img-fluid rounded" />
-          <div class="d-flex flex-column">
-            <h3 th:text="${data.nombre}">Productos</h3>
-            <p class="fw-normal" th:text="'$' + ${data.precio}">Precio</p>
-            <span class="d-flex flex-row align-items-center">
-              <label for="cantidad" class="form-label mb-0">Cantidad: </label>
-              <input
-                class="form-control"
-                type="number"
-                style="border: none; width: fit-content"
-                min="1"
-                id="cantidad"
-                max="${data.maxCant}"
-                value="1"
-              />
-            </span>
-            <button type="button" class="btn btn-primary">Comprar</button>
+        <div th:replace="components/detalle :: detalle"></div>
+        <section class="mt-5">
+          <h4>Productos similares</h4>
+          <div th:each="producto : ${data.similares}">
+            <div th:replace="components/card :: card"></div>
           </div>
         </section>
       </section>
