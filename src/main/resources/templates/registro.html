@@ -29,15 +29,25 @@
       <div
         class="d-flex flex-column align-items center shadow rounded p-5 bg-white"
       >
-        <h2 class="mb-5">Registro</h2>
-        <form class="d-flex flex-column">
+        <h2 class="mb-5" style="text-align: center">Registro</h2>
+        <form action="" class="d-flex flex-column">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Usuario</label>
+            <input
+              class="form-control"
+              aria-describedby="emailHelp"
+              id="usuario"
+              #usuario
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
             <input
               type="email"
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
+              #email
             />
           </div>
           <div class="mb-3">
@@ -48,9 +58,10 @@
               type="password"
               class="form-control"
               id="exampleInputPassword1"
+              #pass
             />
           </div>
-          <button type="submit" class="btn btn-primary align-self-center">
+          <button type="button" class="btn btn-primary align-self-center" onClick="registrarUsuario();">
             Submit
           </button>
           <span class="d-flex flex-row mt-4"
@@ -75,5 +86,6 @@
       integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
       crossorigin="anonymous"
     ></script>
+    <script type="text/javascript" th:src="@{/js/signin.js}"></script>
   </body>
 </html>
