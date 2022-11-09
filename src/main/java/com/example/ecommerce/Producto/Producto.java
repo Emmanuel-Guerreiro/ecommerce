@@ -32,6 +32,9 @@ public class Producto extends BaseEntity {
     @Column(name = "stock")
     private int stock;
 
+    @Column(name = "imagen")
+    private String imagen;
+
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "fk_categoria")
     private Categoria cateogria;

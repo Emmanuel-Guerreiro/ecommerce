@@ -3,7 +3,6 @@ package com.example.ecommerce.ImageStorage;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Calendar;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
@@ -14,32 +13,19 @@ import org.springframework.web.multipart.MultipartFile;
 public class IndireccionImageStorage {
 
     // Uploads an image and returns it url in the storage
-    public String uploadImage(MultipartFile archivo) throws Exception {
-        try {
-            System.out.println("--------------------------------------");
-            String ruta = "/tmp";
+    public String uploadImage(MultipartFile file) throws java.io.IOException {
+        StringBuilder fileNames = new StringBuilder();
 
-            String originalFilename = archivo.getOriginalFilename();
-            System.out.println("--------------------------------------");
-            if (originalFilename == null) {
-                System.out.println("--------------------------------------");
+        // Se asegura que exista el directorio antes de guardar la imagen
+        // Files.createDirectories(Paths.get("/tmp/images-taller"));
 
-                throw new Exception();
-            }
-            System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        Path fileNameAndPath = Paths.get("/tmp", file.getOriginalFilename());
+        fileNames.append(file.getOriginalFilename());
 
-            int index = originalFilename.indexOf(".");
-            String extension = "";
-            extension = "." + originalFilename.substring(index + 1);
-            String nombreFoto = Calendar.getInstance().getTimeInMillis() + extension;
-            Path rutaAbsoluta = Paths.get(ruta + nombreFoto);
-            Files.write(rutaAbsoluta, archivo.getBytes());
+        System.out.println("0000000000");
+        Files.write(fileNameAndPath, file.getBytes());
 
-            return nombreFoto;
-
-        } catch (Exception e) {
-            throw new Exception();
-        }
+        return fileNameAndPath.toString();
     }
 
 }

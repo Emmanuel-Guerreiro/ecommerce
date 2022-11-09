@@ -7,16 +7,12 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ~/apps/mysql:/var/lib/mysql
+      - mi_volumen:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_PASSWORD=password
       - MYSQL_USER=user
       - MYSQL_DATABASE=database
-
-  # web:
-  #   build: .
-  #   ports:
-  #     - "9000:9000"
-  #   depends_on:
-  #     - localhost
+volumes:
+  mi_volumen:
+    external: false

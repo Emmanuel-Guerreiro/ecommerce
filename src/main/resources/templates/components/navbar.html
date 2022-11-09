@@ -1,7 +1,8 @@
-
-<nav th:fragment="nav_bar" class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+<nav
+  th:fragment="nav_bar"
+  class="navbar navbar-expand-lg navbar-light white scrolling-navbar"
+>
   <div class="container">
-
     <!-- Brand -->
     <a class="navbar-brand" th:href="@{/}">
       <strong class="blue-text">RocketPowers</strong>
@@ -9,12 +10,10 @@
 
     <!-- Links -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
       <!-- Left -->
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link waves-effect" href="#"  >Inicio
-          </a>
+          <a class="nav-link waves-effect" href="#">Inicio </a>
         </li>
         <li class="nav-item">
           <a class="nav-link waves-effect" target="_blank">Productos</a>
@@ -24,30 +23,39 @@
       <!-- Right -->
       <ul class="navbar-nav nav-flex-icons">
         <li class="nav-item">
-          <a class="nav-link waves-effect" >
+          <a class="nav-link waves-effect">
             <span class="badge red z-depth-1 mr-1"> 1 </span>
             <i class="fas fa-shopping-cart"></i>
             <span class="clearfix d-none d-sm-inline-block"> Carrito </span>
           </a>
         </li>
         <li class="nav-item">
-          <a href="https://www.facebook.com/mdbootstrap" class="nav-link waves-effect" target="_blank">
+          <a
+            href="https://www.facebook.com/mdbootstrap"
+            class="nav-link waves-effect"
+            target="_blank"
+          >
             <i class="fab fa-facebook-f"></i>
           </a>
         </li>
         <li class="nav-item">
-          <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect" target="_blank">
+          <a
+            href="https://twitter.com/MDBootstrap"
+            class="nav-link waves-effect"
+            target="_blank"
+          >
             <i class="fab fa-twitter"></i>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link border border-light rounded waves-effect" th:href="@{/login}">
+          <a
+            class="nav-link border border-light rounded waves-effect"
+            th:href="@{/login}"
+          >
             <i class="fab fa-github mr-2"></i>Perfil
           </a>
         </li>
       </ul>
-
     </div>
-
   </div>
 </nav>

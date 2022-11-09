@@ -15,7 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.example.ecommerce.Categoria.Categoria;
 import com.example.ecommerce.Categoria.CategoriaServiceImpl;
 import com.example.ecommerce.Frontend.DTO.DTOProductoUI;
-import com.example.ecommerce.ImageStorage.IndireccionImageStorage;
 import com.example.ecommerce.Producto.Producto;
 import com.example.ecommerce.Producto.ProductoServiceImpl;
 import com.example.ecommerce.Producto.DTO.DTOCreateProducto;
@@ -107,24 +106,13 @@ public class FrontendController {
             @ModelAttribute("producto") DTOCreateProducto producto) {
         try {
 
-            System.out.println(producto);
-            System.out.println("************************************");
-            System.out.println("************************************");
-            System.out.println("************************************");
-            System.out.println("************************************");
-            System.out.println(producto.toString());
-            System.out.println("************************************");
-            System.out.println("************************************");
-            System.out.println("************************************");
-            System.out.println(new IndireccionImageStorage().uploadImage(archivo));
-            System.out.println("************************************");
-            System.out.println("************************************");
-            System.out.println("************************************");
+            Producto nuevo = productoService.save(producto);
 
             List<Categoria> categorias = categoriaService.findAll();
 
             model.addAttribute("categorias", categorias);
             model.addAttribute("producto", new DTOCreateProducto());
+            model.addAttribute("creado", nuevo);
 
             return "nuevo";
         } catch (Exception e) {

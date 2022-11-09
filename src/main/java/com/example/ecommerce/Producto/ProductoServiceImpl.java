@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.example.ecommerce.Base.BaseServiceImpl;
 import com.example.ecommerce.Categoria.Categoria;
 import com.example.ecommerce.Categoria.CategoriaServiceImpl;
+import com.example.ecommerce.ImageStorage.IndireccionImageStorage;
 import com.example.ecommerce.Producto.DTO.DTOCreateProducto;
 
 @Service
@@ -23,15 +24,25 @@ public class ProductoServiceImpl extends BaseServiceImpl<Producto, Long, Product
     }
 
     // Todo: Mapper deberia llegar por DI
-    public Producto save(DTOCreateProducto producto_nuevo) {
-        ModelMapper mapper = new ModelMapper();
-        Producto producto = mapper.map(producto_nuevo, Producto.class);
+    @Override
+    public Producto save(DTOCreateProducto producto_nuevo) throws Exception {
+        try {
+            ModelMapper mapper = new ModelMapper();
+            Producto producto = mapper.map(producto_nuevo, Producto.class);
 
-        Categoria categoria = categoriaService.findOrCreate(producto_nuevo.getCategoria());
-        producto.setCateogria(categoria);
+            Categoria categoria = categoriaService.findOrCreate(producto_nuevo.getCategoria());
+            producto.setCateogria(categoria);
 
-        return repository.save(producto);
+            System.out.println("-------------------Debugeando---------------------");
+            IndireccionImageStorage storage = new IndireccionImageStorage();
+            String direccionImg = storage.uploadImage(producto_nuevo.getImagen());
+            System.out.println("-------------------Debugeando---------------------");
+            producto.setImagen(direccionImg);
 
+            return repository.save(producto);
+        } catch (Exception e) {
+            throw new Exception();
+        }
     }
 
     public List<Producto> findAllByCategory(Long categoria) {
