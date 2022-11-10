@@ -1,60 +1,83 @@
-<nav
-  th:fragment="nav_bar"
-  class="navbar-expand-lg navbar navbar-dark bg-dark scrolling-navbar"
->
-  <div class="container">
-    <!-- Brand -->
-    <a class="navbar-brand" th:href="@{/}">
-      <strong class="blue-text">RocketPowers</strong>
-    </a>
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Ecommerce</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
 
-    <!-- Links -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <!-- Left -->
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link waves-effect" href="#">Inicio </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link waves-effect" target="_blank">Productos</a>
-        </li>
-      </ul>
+    <!-- Bootstrap CSS v5.2.1 -->
 
-      <!-- Right -->
-      <ul class="navbar-nav nav-flex-icons">
-        <li class="nav-item">
-          <a class="nav-link waves-effect">
-            <i class="fas fa-shopping-cart"></i>
-            <span class="clearfix d-none d-sm-inline-block"> Carrito </span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a
-            href="https://www.facebook.com/mdbootstrap"
-            class="nav-link waves-effect"
-            target="_blank"
-          >
-            <i class="fab fa-facebook-f"></i>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a
-            href="https://twitter.com/MDBootstrap"
-            class="nav-link waves-effect"
-            target="_blank"
-          >
-            <i class="fab fa-twitter"></i>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link border border-light rounded waves-effect"
-            th:href="@{/login}"
-          >
-            <i class="fab fa-github mr-2"></i>Perfil
-          </a>
-        </li>
-      </ul>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/0500a06681.js"
+      crossorigin="anonymous"
+    ></script>
+    <link th:href="@{/styles/estilos.css}" rel="stylesheet" />
+  </head>
+
+  <nav
+    th:fragment="nav_bar"
+    class="navbar-expand-lg navbar navbar-dark bg-dark scrolling-navbar"
+  >
+    <div class="container">
+      <!-- Brand -->
+      <a class="navbar-brand" th:href="@{/}">
+        <strong class="blue-text">RocketPowers</strong>
+      </a>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Left -->
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item align-middle active">
+            <a class="nav-link waves-effect" href="#">Inicio </a>
+          </li>
+          <li class="nav-item align-middle">
+            <a class="nav-link waves-effect" target="_blank">Productos</a>
+          </li>
+        </ul>
+
+        <!-- Right -->
+        <ul class="navbar-nav mr-auto nav-flex-icons">
+          <li class="nav-item align-middle">
+            <a class="nav-link waves-effect">
+              <i class="fas fa-shopping-cart"></i>
+              Carrito
+            </a>
+          </li>
+          <li class="nav-item align-middle">
+            <a
+              href="https://www.facebook.com/mdbootstrap"
+              class="nav-link waves-effect"
+              target="_blank"
+            >
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              href="https://twitter.com/MDBootstrap"
+              class="nav-link waves-effect"
+              target="_blank"
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link border border-light rounded waves-effect"
+              th:href="@{/login}"
+            >
+              <p><i class="fa-solid fa-user fa-xl"></i>Perfil</p>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</html>

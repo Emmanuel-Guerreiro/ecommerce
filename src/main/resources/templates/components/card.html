@@ -4,20 +4,24 @@
   class="card text-black m-1"
   style="width: 12rem; text-decoration: none; cursor: pointer"
 >
+  <!--Card image-->
   <img
-    src="https://placekitten.com/100"
+    src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13.jpg"
     class="card-img-top"
-    style="height: 8rem"
+    alt="${producto.nombre}"
   />
-  <section class="card-body">
-    <h5 th:text="${producto.nombre}" class="card-title text-decoration-none">
-      Nombre
-    </h5>
-    <p
-      th:text="'Precio: $' + ${producto.precio}"
-      class="card-title text-decoration-none"
-    >
-      Precio
+  <!--Card image-->
+
+  <!--Card content-->
+  <section class="card-body text-center">
+    <!--Category & Title-->
+    <strong>
+      <p class="card-title" th:text="${producto.nombre}">Sweatshirt</p>
+    </strong>
+    <p class="card-text">
+      <strong th:text="'$'+ ${producto.precio}">139$</strong>
     </p>
   </section>
+  <!--Card content-->
+  <!--Card-->
 </a>

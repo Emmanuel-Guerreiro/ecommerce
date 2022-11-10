@@ -1,53 +1,16 @@
-html,
-body,
-header,
-.carousel {
-  height: 60vh;
+html {
+  font-size: 20px;
+  font-family: "Open Sans", sans-serif;
 }
 body {
   background-color: white;
 }
-
-@media (max-width: 740px) {
-  html,
-  body,
-  header,
-  .carousel {
-    height: 100vh;
-  }
-}
-
-@media (min-width: 800px) and (max-width: 850px) {
-  html,
-  body,
-  header,
-  .carousel {
-    height: 100vh;
-  }
-}
-.view,
-body,
-html {
-  height: 100%;
-}
-.carousel {
-  height: 50%;
-}
-.carousel .carousel-inner,
-.carousel .carousel-inner .active,
-.carousel .carousel-inner .carousel-item {
-  height: 100%;
-}
-@media (max-width: 776px) {
-  .carousel {
-    height: 100%;
-  }
-}
-.page-footer {
-  background-color: #929fba;
+.fa-user {
+  color: white;
 }
 .navbar {
-  background-color: white;
+  background-color: black;
+  border-bottom: 1px solid red;
 }
 a {
   color: black;
