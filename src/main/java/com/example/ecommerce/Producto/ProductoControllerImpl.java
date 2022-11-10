@@ -30,7 +30,8 @@ public class ProductoControllerImpl
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
     public Producto save(@RequestBody DTOCreateProducto entity) throws Exception {
-
+        System.out.println(entity.toString());
+        System.out.println("______________________---------------");
         return this.service.save(entity);
     }
 

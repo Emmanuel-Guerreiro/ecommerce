@@ -1,11 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Carrito</title>
-</head>
-<body>
-<nav th:replace="components/navbar :: nav_bar"> </nav>
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <link th:href="@{/styles/estilos.css}" rel="stylesheet" />
+  </head>
+  <body>
+    <nav th:replace="components/navbar :: nav_bar"></nav>
+    <main class="container">
+      <h4 class="my-5">Carrito de compras</h4>
+      <div class="d-flex flex-row justify-content-between">
+        <section class="rounded col-9">
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th scope="col">Producto</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio u.</th>
+                <th scope="col">Cantidad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <div th:each="item : ${items}">
+                <tr class="align-middle">
+                  <td>
+                    <img
+                      width="50"
+                      height="50"
+                      class="rounded"
+                      src="https://placekitten.com/150/150"
+                    />
+                  </td>
+                  <td th:text="${item.producto.nombre}">Nombre</td>
+                  <td th:text="${item.producto.precio}">Precio unitario</td>
+                  <td th:text="${item.cantidad}">Cantidad</td>
+                </tr>
+              </div>
+            </tbody>
+          </table>
+        </section>
+        <section
+          class="d-flex flex-column shadow rounded col-3 p-4"
+          style="height: fit-content"
+        >
+          <h5>Detalle compra</h5>
+          <span class="d-flex flex-row justify-content-between"
+            ><p>Productos</p>
+            <p th:text=" ${data.cantidadItems}">Cantidad</p></span
+          >
+          <span class="d-flex flex-row justify-content-between"
+            ><p>Total</p>
+            <p th:text=" ${data.total}">Total</p></span
+          >
+          <button type="button" id="confirmar-compra" class="btn btn-primary">
+            Comprar
+          </button>
+          <a th:href="@{/}" class="mx-auto mt-3">Continuar comprando</a>
+        </section>
+      </div>
+    </main>
+    <script type="text/javascript" th:src="@{/js/comprar.js}"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
 
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

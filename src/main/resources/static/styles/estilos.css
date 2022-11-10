@@ -1,34 +1,63 @@
 html,
-    body,
-    header,
-    .carousel {
-      height: 60vh;
-    }
-    body{
-        background-color: white;
-    }
-
-    @media (max-width: 740px) {
-      html,
-      body,
-      header,
-      .carousel {
-        height: 100vh;
-      }
-    }
-
-    @media (min-width: 800px) and (max-width: 850px) {
-      html,
-      body,
-      header,
-      .carousel {
-        height: 100vh;
-      }
-    }
-.view,body,html{height:100%}.carousel{height:50%}.carousel .carousel-inner,.carousel .carousel-inner .active,.carousel .carousel-inner .carousel-item{height:100%}@media (max-width:776px){.carousel{height:100%}}.page-footer{background-color:#929FBA}
-.navbar{
-    background-color: white;
+body,
+header,
+.carousel {
+  height: 60vh;
 }
-a{
-color:black;
+body {
+  background-color: white;
+}
+
+@media (max-width: 740px) {
+  html,
+  body,
+  header,
+  .carousel {
+    height: 100vh;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 850px) {
+  html,
+  body,
+  header,
+  .carousel {
+    height: 100vh;
+  }
+}
+.view,
+body,
+html {
+  height: 100%;
+}
+.carousel {
+  height: 50%;
+}
+.carousel .carousel-inner,
+.carousel .carousel-inner .active,
+.carousel .carousel-inner .carousel-item {
+  height: 100%;
+}
+@media (max-width: 776px) {
+  .carousel {
+    height: 100%;
+  }
+}
+.page-footer {
+  background-color: #929fba;
+}
+.navbar {
+  background-color: white;
+}
+a {
+  color: black;
+}
+
+.table-borderless > tbody > tr > td,
+.table-borderless > tbody > tr > th,
+.table-borderless > tfoot > tr > td,
+.table-borderless > tfoot > tr > th,
+.table-borderless > thead > tr > td,
+.table-borderless > thead > tr > th {
+  border: none;
 }

@@ -20,7 +20,7 @@ public class CategoriaServiceImpl
         super(repository);
     }
 
-    public Categoria findOrCreate(String nombre) {
+    public Categoria findByNameOrCreate(String nombre) {
         return this.repository.findByNombre(nombre)
                 .orElseGet(() -> this.create(nombre));
     }

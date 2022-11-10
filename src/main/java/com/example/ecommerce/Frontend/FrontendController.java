@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.example.ecommerce.Categoria.Categoria;
 import com.example.ecommerce.Categoria.CategoriaServiceImpl;
+import com.example.ecommerce.Frontend.DTO.DTOCarritoUI;
 import com.example.ecommerce.Frontend.DTO.DTOProductoUI;
 import com.example.ecommerce.Producto.Producto;
 import com.example.ecommerce.Producto.ProductoServiceImpl;
@@ -80,6 +81,30 @@ public class FrontendController {
         try {
 
             return "registro";
+        } catch (Exception e) {
+            return "error";
+        }
+    }
+
+    @GetMapping("/carrito/{id}")
+    public String carrito(Model model, @PathVariable Long id) {
+        try {
+
+            DTOCarritoUI dto = service.buildCarritoData(id);
+            model.addAttribute("data", dto);
+            model.addAttribute("items", dto.getDetalles());
+
+            return "carrito";
+        } catch (Exception e) {
+            return "error";
+        }
+    }
+
+    @GetMapping("/compra/{id}")
+    public String carrito(Model model, @PathVariable long id) {
+        try {
+
+            return "compra";
         } catch (Exception e) {
             return "error";
         }

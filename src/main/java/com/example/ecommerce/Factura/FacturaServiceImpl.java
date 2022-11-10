@@ -8,9 +8,11 @@ import org.springframework.stereotype.Service;
 import com.example.ecommerce.Base.BaseServiceImpl;
 import com.example.ecommerce.Carrito.Carrito;
 import com.example.ecommerce.Carrito.CarritoServiceImpl;
+import com.example.ecommerce.Carrito.DetalleCarrito;
 
 @Service
-public class FacturaServiceImpl extends BaseServiceImpl<Factura, Long, FacturaRepository> implements FacturaService {
+public class FacturaServiceImpl
+        extends BaseServiceImpl<Factura, Long, FacturaRepository> {
 
     CarritoServiceImpl carritoService;
 
@@ -21,19 +23,20 @@ public class FacturaServiceImpl extends BaseServiceImpl<Factura, Long, FacturaRe
         this.carritoService = carritoService;
     }
 
-    @Override
-    public Factura save(Long carritoId) throws Exception {
+    public Factura saveFromFactura(Long carritoId) throws Exception {
         Carrito c = this.carritoService.findById(carritoId);
+        System.out.println(c.getId());
         Factura f = carritoFromFactura(c);
 
-        return this.repository.save(f);
+        return repository.save(f);
     };
 
     private Factura carritoFromFactura(Carrito c) {
         Factura nFactura = new Factura();
         nFactura.setFecha(new Date());
+        nFactura.setCliente(c.getCliente());
 
-        c.getDetalles().forEach(detalleC -> {
+        for (DetalleCarrito detalleC : c.getDetalles()) {
 
             DetalleFactura detalleF = DetalleFactura
                     .builder()
@@ -43,7 +46,14 @@ public class FacturaServiceImpl extends BaseServiceImpl<Factura, Long, FacturaRe
                     .build();
 
             nFactura.addDetalle(detalleF);
-        });
+        }
+
+        float precioTotal = 0;
+        for (DetalleFactura df : nFactura.getDetalles()) {
+            precioTotal += df.getPrecio();
+        }
+
+        nFactura.setMontoTotal(precioTotal);
 
         return nFactura;
     }

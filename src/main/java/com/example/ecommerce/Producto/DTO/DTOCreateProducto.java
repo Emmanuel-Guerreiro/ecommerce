@@ -1,7 +1,5 @@
 package com.example.ecommerce.Producto.DTO;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,11 +10,11 @@ public class DTOCreateProducto {
     private String nombre;
     private String categoria;
     private int stock;
-    private MultipartFile imagen;
+    // private MultipartFile imagen;
 
     @Override
     public String toString() {
-        return String.format("%s %s", nombre, categoria);
+        return String.format("%s %s %d", nombre, categoria, stock);
     }
 
 }

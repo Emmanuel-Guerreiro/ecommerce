@@ -5,6 +5,7 @@
  */
 package com.example.ecommerce.Factura;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.http.HttpStatus;
+
 import com.example.ecommerce.Base.BaseControllerImpl;
 
 @RestController
@@ -28,12 +29,13 @@ public class FacturaControllerImpl extends BaseControllerImpl<Factura, Long, Fac
 
     // TODO: Revisar si esto va realmente en esta entidad. Por REST me parece que va
     // dentro de carrito
-    @PostMapping("/pagar-carrito/{id}")
+    @PostMapping("/pagar-carrito/{carritoId}")
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
-    public Factura save(@PathVariable Long id) throws Exception {
+    public Factura save(@PathVariable Long carritoId) throws Exception {
 
-        return this.service.save(id);
+        System.out.println(carritoId);
+        return this.service.saveFromFactura(carritoId);
     }
 
 }

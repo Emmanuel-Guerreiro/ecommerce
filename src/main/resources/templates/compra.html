@@ -26,26 +26,13 @@
       class="d-flex flex-column align-items-center justify-content-center"
       style="min-height: 80vh"
     >
-      <section class="w-75">
-        <div th:replace="components/breadcrumb :: breadcrumb"></div>
-        <div th:replace="components/detalle :: detalle"></div>
-        <section class="mt-5">
-          <h4>Productos similares</h4>
-          <div th:each="producto : ${data.similares}">
-            <div th:replace="components/card :: card"></div>
-          </div>
-        </section>
-      </section>
+      <h3>Compra exitosa</h3>
+      <p>Muchas gracias por su compra!</p>
     </main>
     <footer>
       <!-- place footer here -->
     </footer>
     <!-- Bootstrap JavaScript Libraries -->
-    <script
-      type="text/javascript"
-      th:src="@{/js/addProductoCarrito.js}"
-    ></script>
-
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
       integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
