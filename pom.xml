@@ -11,7 +11,7 @@
     <groupId>com.example</groupId>
     <artifactId>persona</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>persona</name>
+    <name>eccomerce reciente</name>
     <description>persona</description>
     <properties>
         <java.version>11</java.version>
@@ -73,6 +73,12 @@
             <groupId>org.modelmapper</groupId>
             <artifactId>modelmapper</artifactId>
             <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <version>9.0.0</version>
+            <type>jar</type>
         </dependency>
     </dependencies>
 

@@ -11,4 +11,6 @@ public interface ProductoService extends BaseService<Producto, Long> {
     public Producto save(DTOCreateProducto producto_nuevo) throws Exception;
 
     public List<Producto> findSimilar(Categoria c);
+    
+    public List<Producto> findByFilter(String filter);
 }
