@@ -14,7 +14,10 @@ import com.example.ecommerce.Producto.DTO.DTOCreateProducto;
 @Service
 public class ProductoServiceImpl extends BaseServiceImpl<Producto, Long, ProductoRepository>
         implements ProductoService {
+
     CategoriaServiceImpl categoriaService;
+    @Autowired
+    public ProductoRepository repo;
 
     @Autowired
     public ProductoServiceImpl(ProductoRepository repository, CategoriaServiceImpl categoriaService) {
@@ -38,7 +41,6 @@ public class ProductoServiceImpl extends BaseServiceImpl<Producto, Long, Product
             // String direccionImg = storage.uploadImage(producto_nuevo.getImagen());
             // System.out.println("-------------------Debugeando---------------------");
             // producto.setImagen(direccionImg);
-
             return repository.save(producto);
         } catch (Exception e) {
             throw new Exception();
@@ -60,5 +62,10 @@ public class ProductoServiceImpl extends BaseServiceImpl<Producto, Long, Product
         similares.removeIf(p -> p.getCateogria().getId() == categoria.getId());
 
         return similares;
+    }
+
+    @Override
+    public List<Producto> findByFilter(String filter) {
+        return this.repo.findByFilter(filter);
     }
 }

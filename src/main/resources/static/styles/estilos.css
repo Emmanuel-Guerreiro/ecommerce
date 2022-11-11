@@ -10,7 +10,7 @@ body {
 }
 .navbar {
   background-color: black;
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid rgb(255, 255, 255);
 }
 a {
   color: black;
@@ -23,4 +23,10 @@ a {
 .table-borderless > thead > tr > td,
 .table-borderless > thead > tr > th {
   border: none;
+}
+.pt-4{
+  padding-top: 0% !important;
+}
+footer{
+  background-color: lightgray;
 }

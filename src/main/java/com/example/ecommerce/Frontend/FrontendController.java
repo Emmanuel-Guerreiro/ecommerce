@@ -19,6 +19,8 @@ import com.example.ecommerce.Frontend.DTO.DTOProductoUI;
 import com.example.ecommerce.Producto.Producto;
 import com.example.ecommerce.Producto.ProductoServiceImpl;
 import com.example.ecommerce.Producto.DTO.DTOCreateProducto;
+import jakarta.ws.rs.QueryParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class FrontendController {
@@ -143,5 +145,19 @@ public class FrontendController {
         } catch (Exception e) {
             return "error";
         }
+    }
+    
+    
+    @GetMapping("/search")
+    public String findProductsByFilter(Model model, @QueryParam("filter") String filter) {
+        
+        try{
+            List<Producto> productos = this.productoService.findByFilter(filter);
+            model.addAttribute("productos", productos);
+            return "index";
+        }
+        catch(Exception error){
+            return "Se ha producido un error";
+        }          
     }
 }
