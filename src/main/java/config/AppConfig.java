@@ -1,13 +1,19 @@
 package config;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class AppConfig {
-    // Todo: Descomentar cuando se llegue a usar los dtos
+    @Configuration
+    public class ImagenConfiguration implements WebMvcConfigurer {
 
-    // @Bean
-    // public ModelMapper modelMapper() {
-    // return new ModelMapper();
-    // }
+        @Override
+        public void addResourceHandlers(ResourceHandlerRegistry registry) {
+            WebMvcConfigurer.super.addResourceHandlers(registry);
+            registry.addResourceHandler("/imagenes/**").addResourceLocations("/home/emma/Facultad/imagenes");
+        }
+
+    }
 }

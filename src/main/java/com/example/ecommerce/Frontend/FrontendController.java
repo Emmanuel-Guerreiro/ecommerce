@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.example.ecommerce.Categoria.Categoria;
 import com.example.ecommerce.Categoria.CategoriaServiceImpl;
@@ -127,10 +126,13 @@ public class FrontendController {
     @PostMapping("/nuevo")
     public String saveProd(
             Model model,
-            @RequestParam("archivo") MultipartFile archivo,
             @ModelAttribute("producto") DTOCreateProducto producto) {
         try {
+            System.out.println(producto);
+            System.out.println("[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]");
+            // System.out.println(archivo);
 
+            System.out.println(producto.getImagen().getOriginalFilename());
             Producto nuevo = productoService.save(producto);
 
             List<Categoria> categorias = categoriaService.findAll();

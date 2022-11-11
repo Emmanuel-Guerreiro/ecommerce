@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.example.ecommerce.Base.BaseServiceImpl;
 import com.example.ecommerce.Categoria.Categoria;
 import com.example.ecommerce.Categoria.CategoriaServiceImpl;
+import com.example.ecommerce.ImageStorage.IndireccionImageStorage;
 import com.example.ecommerce.Producto.DTO.DTOCreateProducto;
 
 @Service
@@ -26,18 +27,19 @@ public class ProductoServiceImpl extends BaseServiceImpl<Producto, Long, Product
     @Override
     public Producto save(DTOCreateProducto producto_nuevo) throws Exception {
         try {
+            // Convierto los campos basicos del dto a objeto
             ModelMapper mapper = new ModelMapper();
-            System.out.println(producto_nuevo.toString());
             Producto producto = mapper.map(producto_nuevo, Producto.class);
 
+            // Cargo la categoria (Me aseguro que exista o la creo)
             Categoria categoria = categoriaService.findByNameOrCreate(producto_nuevo.getCategoria());
             producto.setCateogria(categoria);
 
-            // System.out.println("-------------------Debugeando---------------------");
-            // IndireccionImageStorage storage = new IndireccionImageStorage();
-            // String direccionImg = storage.uploadImage(producto_nuevo.getImagen());
-            // System.out.println("-------------------Debugeando---------------------");
-            // producto.setImagen(direccionImg);
+            // La imagen se va a un microservicio de nodejs y me devuelve la url de un
+            // storage de firebase
+            IndireccionImageStorage storage = new IndireccionImageStorage();
+            String direccionImg = storage.uploadImage(producto_nuevo.getImagen(), producto.getNombre());
+            producto.setImagen(direccionImg);
 
             return repository.save(producto);
         } catch (Exception e) {
