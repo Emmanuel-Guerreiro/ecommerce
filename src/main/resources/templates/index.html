@@ -23,6 +23,7 @@
       rel="stylesheet"
       type="text/css"
     />
+  
   </head>
 
   <body>
@@ -30,67 +31,34 @@
     <nav th:replace="components/navbar :: nav_bar"></nav>
     <!-- Navbar -->
 
-<section th:style="'background-image:url(' + @{/images/home.gif} + '); background-repeat: no-repeat, repeat; background-size: cover;'">asd</section>
+    <section
+      id="banner"
+        class="w-100"
+       style="height: 300px"
+      ></section>
 
-    <!--Main layout-->
     <main>
       <div class="container">
-        <!--Navbar-->
-        <nav
-          class="navbar navbar-expand-lg navbar-light mdb-color lighten-3 mt-3 mb-5"
-        >
-          <!-- Navbar brand -->
-          <span class="navbar-brand" style="color: black">Categories:</span>
-
-          <!-- Collapse button -->
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#basicExampleNav"
-            aria-controls="basicExampleNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <!-- Collapsible content -->
-          <div class="collapse navbar-collapse" id="basicExampleNav">
-            <!-- Links -->
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="#" style="color: black"
-                  >All
-                  <span class="sr-only">(current)</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" style="color: black">Shirts</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" style="color: black">
-                  Sport wears</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" style="color: black">Outwears</a>
-              </li>
-            </ul>
-            <!-- Links -->
-
-            <form class="form-inline" th:action="@{/productos}">
-              <div class="md-form my-0">
-                <input
-                  class="form-control mr-sm-2"
-                  type="text"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-              </div>
-            </form>
+        <h3 class="mb-3">Productos</h3>
+        <section class="w-100  justify-content-between d-flex flex-row">
+          <div class="d-flex flex-row">
+            Categorias:
+             <a style="cursor: pointer" class="mx-2 text-decoration-none" 
+               th:href="@{/productos}">#Todos</a>
+            <span th:each="categoria : ${categorias}">
+              <a style="cursor: pointer" class="mx-2 text-decoration-none" 
+              th:text="'#' + ${categoria.nombre}" th:href="@{/productos(categoria=${categoria.id})}"></a>
+            </span>
           </div>
-        </nav>
+          <form class="form-inline" th:action="@{/productos}">
+              <input
+                class="form-control mr-sm-2"
+                type="text"
+                placeholder="Buscar productos"
+                aria-label="Search"
+              />
+          </form>
+        </section>
 
         <section class="text-center mb-4">
           <!--Grid row-->
@@ -103,20 +71,12 @@
               class="col-xl-3 col-lg-3 col-md-6 mb-4"
             >
              <div th:replace="components/card :: card"></div>
-
           </div>
-          <!--Fourth column-->
-
-          <!--Grid row-->
-
-          <!--Grid row-->
-
-          <!--Fourth column-->
         </section>
         <!--Section: Products v.3-->
 
         <!--Pagination-->
-        <nav class="d-flex justify-content-center wow fadeIn">
+        <section class="d-flex justify-content-center  fadeIn">
           <ul class="pagination pg-blue">
             <!--Arrow left-->
             <li class="page-item disabled">
@@ -152,7 +112,7 @@
               </a>
             </li>
           </ul>
-        </nav>
+        </section>
         <!--Pagination-->
       </div>
     </main>
@@ -246,8 +206,6 @@
       integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
       crossorigin="anonymous"
     ></script>
-    <script>
-      console.log("hola");
-    </script>
+
   </body>
 </html>

@@ -12,6 +12,7 @@ import com.example.ecommerce.Frontend.DTO.DTOCarritoUI;
 import com.example.ecommerce.Frontend.DTO.DTOProductoUI;
 import com.example.ecommerce.Producto.Producto;
 import com.example.ecommerce.Producto.ProductoService;
+import com.example.ecommerce.Producto.ProductoServiceImpl;
 
 @Service
 public class FrontendService {
@@ -20,15 +21,17 @@ public class FrontendService {
     CarritoServiceImpl carritoService;
 
     @Autowired
-    public FrontendService(ProductoService productoService, CarritoServiceImpl carritoService) {
+    public FrontendService(ProductoServiceImpl productoService, CarritoServiceImpl carritoService) {
         this.productoService = productoService;
         this.carritoService = carritoService;
     }
 
     public DTOProductoUI buildProductData(Long id) throws Exception {
         Producto producto = productoService.findById(id);
-        List<Producto> similares = productoService.findSimilar(producto.getCateogria());
+        List<Producto> similares = productoService.findSimilar(producto);
 
+        System.out.println("ASDASKJDNAKJDNSJKANSKJDNJDSKA   ");
+        System.out.println(similares.size());
         DTOProductoUI dto = DTOProductoUI.builder()
                 .imagen(producto.getImagen())
                 .nombre(producto.getNombre())

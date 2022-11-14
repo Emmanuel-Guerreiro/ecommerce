@@ -39,9 +39,7 @@ public class ProductoControllerImpl
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
     public int probando(@ModelAttribute DTOCreateProducto dto) {
-        System.out.println("*****************************");
         System.out.println(dto.getNombre());
-        System.out.println("*****************************");
         return 1;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.ecommerce.Frontend;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,7 +42,8 @@ public class FrontendController {
             @RequestParam(name = "categoria", required = false) Long categoria) {
         try {
             List<Producto> productos = productoService.findAllByCategory(categoria);
-            List<Categoria> categorias = categoriaService.findAll();
+            List<Categoria> c = categoriaService.findAll();
+            List<Categoria> categorias = c.stream().limit(5).collect(Collectors.toList());
 
             model.addAttribute("productos", productos);
             model.addAttribute("categorias", categorias);
@@ -53,17 +55,18 @@ public class FrontendController {
     }
 
     @GetMapping("/productos")
-    public String getProductos(
+    public String getProductos(Model model,
             @RequestParam(name = "categoria", required = false) Long categoria,
-            Model model) {
+            @RequestParam(name = "nombre", required = false) String nombre) {
         try {
-            List<Producto> productos = productoService.findAllByCategory(categoria);
-            List<Categoria> categorias = categoriaService.findAll();
+
+            List<Producto> productos = productoService.findWithFilters(nombre, categoria);
+            List<Categoria> c = categoriaService.findAll();
+            List<Categoria> categorias = c.stream().limit(5).collect(Collectors.toList());
 
             model.addAttribute("productos", productos);
             model.addAttribute("categorias", categorias);
-
-            return "producto";
+            return "productos";
         } catch (Exception e) {
             return "error";
         }
@@ -73,7 +76,6 @@ public class FrontendController {
     public String getOne(Model model, @PathVariable Long id) {
         try {
             DTOProductoUI dto = service.buildProductData(id);
-
             model.addAttribute("data", dto);
 
             return "producto";

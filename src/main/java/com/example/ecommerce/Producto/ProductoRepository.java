@@ -9,4 +9,8 @@ public interface ProductoRepository extends BaseRepository<Producto, Long> {
     List<Producto> findAll();
 
     List<Producto> findByCateogriaId(Long id);
+
+    List<Producto> findByNombreContaining(String name);
+
+    List<Producto> findByNombreOrCateogriaId(String name, Long id);
 }
