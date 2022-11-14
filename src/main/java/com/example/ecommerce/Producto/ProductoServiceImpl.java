@@ -89,8 +89,4 @@ public class ProductoServiceImpl extends BaseServiceImpl<Producto, Long, Product
         return similares;
     }
 
-    @Override
-    public List<Producto> findByFilter(String filter) {
-        return this.repo.findByFilter(filter);
-    }
 }
