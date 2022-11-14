@@ -52,6 +52,23 @@ public class FrontendController {
         }
     }
 
+    @GetMapping("/productos")
+    public String getProductos(
+            @RequestParam(name = "categoria", required = false) Long categoria,
+            Model model) {
+        try {
+            List<Producto> productos = productoService.findAllByCategory(categoria);
+            List<Categoria> categorias = categoriaService.findAll();
+
+            model.addAttribute("productos", productos);
+            model.addAttribute("categorias", categorias);
+
+            return "producto";
+        } catch (Exception e) {
+            return "error";
+        }
+    }
+
     @GetMapping("/productos/{id}")
     public String getOne(Model model, @PathVariable Long id) {
         try {
