@@ -6,9 +6,10 @@
 >
   <!--Card image-->
   <img
-    src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13.jpg"
+    th:src="${producto.imagen}"
     class="card-img-top"
-    alt="${producto.nombre}"
+    th:alt="${producto.nombre}"
+    style="max-height: 200px; max-width: 250px"
   />
   <!--Card image-->
 

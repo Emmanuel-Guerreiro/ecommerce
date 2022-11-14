@@ -2,7 +2,13 @@
   th:fragment="detalle"
   class="d-flex flex-row justify-content-between w-100"
 >
-  <img th:src="${data.imagen}" class="img-fluid rounded" />
+  <img
+    th:src="${data.imagen}"
+    width="400"
+    height="400"
+    style="max-height: 400px"
+    class="img-fluid rounded"
+  />
   <div class="d-flex flex-column">
     <h3 th:text="${data.nombre}">Productos</h3>
     <p class="fw-normal" th:text="'$' + ${data.precio}">Precio</p>

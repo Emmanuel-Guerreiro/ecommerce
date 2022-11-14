@@ -145,9 +145,6 @@ public class FrontendController {
             Model model,
             @ModelAttribute("producto") DTOCreateProducto producto) {
         try {
-            System.out.println(producto);
-            System.out.println("[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]");
-            // System.out.println(archivo);
 
             System.out.println(producto.getImagen().getOriginalFilename());
             Producto nuevo = productoService.save(producto);

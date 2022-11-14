@@ -30,7 +30,7 @@ public class FrontendService {
         List<Producto> similares = productoService.findSimilar(producto.getCateogria());
 
         DTOProductoUI dto = DTOProductoUI.builder()
-                .imagen("https://placekitten.com/400/400")
+                .imagen(producto.getImagen())
                 .nombre(producto.getNombre())
                 .precio(producto.getPrecio())
                 .maxCant(producto.getStock())
