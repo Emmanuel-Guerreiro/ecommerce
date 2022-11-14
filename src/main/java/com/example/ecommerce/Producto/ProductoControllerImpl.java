@@ -22,6 +22,9 @@ public class ProductoControllerImpl
         implements ProductoController {
 
     @Autowired
+    public ProductoService productoServ;
+
+    @Autowired
     public ProductoControllerImpl(ProductoServiceImpl service) {
         super(service);
     }
@@ -42,4 +45,5 @@ public class ProductoControllerImpl
         System.out.println(dto.getNombre());
         return 1;
     }
+
 }
