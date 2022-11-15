@@ -18,4 +18,5 @@ public class CategoriaControllerImpl
     public CategoriaControllerImpl(CategoriaServiceImpl service) {
         super(service);
     }
+
 }

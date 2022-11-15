@@ -35,7 +35,7 @@ public class Producto extends BaseEntity {
     @Column(name = "imagen")
     private String imagen;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "fk_categoria")
     private Categoria cateogria;
 }

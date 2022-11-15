@@ -30,7 +30,7 @@ public class FrontendService {
         Producto producto = productoService.findById(id);
         List<Producto> similares = productoService.findSimilar(producto);
 
-        System.out.println("ASDASKJDNAKJDNSJKANSKJDNJDSKA   ");
+        System.out.println("Similares   ");
         System.out.println(similares.size());
         DTOProductoUI dto = DTOProductoUI.builder()
                 .imagen(producto.getImagen())

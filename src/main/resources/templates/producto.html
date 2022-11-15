@@ -33,8 +33,13 @@
         <div th:replace="components/detalle :: detalle"></div>
         <section class="mt-5">
           <h4>Productos similares</h4>
-          <div th:each="producto : ${data.similares}">
-            <div th:replace="components/card :: card"></div>
+          <div class="d-flex flex-rows">
+            <span
+              th:each="producto : ${data.similares}"
+              style="width: fit-content"
+            >
+              <div th:replace="components/card :: card"></div>
+            </span>
           </div>
         </section>
       </section>
