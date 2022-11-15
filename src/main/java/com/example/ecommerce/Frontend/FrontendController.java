@@ -78,6 +78,12 @@ public class FrontendController {
             DTOProductoUI dto = service.buildProductData(id);
             model.addAttribute("data", dto);
 
+            // Agrego categorias
+            List<Categoria> c = categoriaService.findAll();
+            List<Categoria> categorias = c.stream().limit(5).collect(Collectors.toList());
+
+            model.addAttribute("categorias", categorias);
+
             return "producto";
         } catch (Exception e) {
             return "error";

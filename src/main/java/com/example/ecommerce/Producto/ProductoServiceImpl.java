@@ -50,21 +50,16 @@ public class ProductoServiceImpl extends BaseServiceImpl<Producto, Long, Product
         }
     }
 
-    // Todo: Add pagination
-
     public List<Producto> findWithFilters(
-            String nombre, Long categoria
-    // ProductoFilterEnum filter, Object value
-    ) {
+            String nombre, Long categoria) {
 
         if (nombre == null && categoria == null)
             return repository.findAll();
-        // if (filter == ProductoFilterEnum.CATEGORIA)
-        // return this.findAllByCategory((Long) value);
-        // if (filter == ProductoFilterEnum.NOMBRE)
-        // return this.findAllByName((String) value);
 
-        return repository.findByNombreOrCateogriaId(nombre, categoria);
+        if (nombre == null)
+            return this.findAllByCategory(categoria);
+
+        return repository.findByNombreContaining(nombre);
     }
 
     public List<Producto> findAllByCategory(Long categoria) {

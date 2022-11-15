@@ -50,17 +50,25 @@
               Productos
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <span th:each="categoria : ${categorias}">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    th:text="${categoria.nombre}"
+                    th:href="@{/productos(categoria=${categoria.id})}"
+                    >Another action</a
+                  >
+                </li>
+              </span>
             </ul>
           </li>
         </ul>
 
         <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
           <form class="container-fluid justify-content-start">
-            <button class="btn btn btn-outline-secondary" type="button">
+            <!--  <button class="btn btn btn-outline-secondary" type="button">
               Carrito
-            </button>
+            </button> -->
             <a class="active" th:href="@{/login}">
               <button class="btn btn-outline-success" type="button">
                 Perfil
