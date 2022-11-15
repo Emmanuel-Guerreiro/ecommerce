@@ -35,7 +35,7 @@
     <section
       id="banner"
       class="w-100"
-      style="height: 300px"
+      style="height: 300px; background-image: url(https://d3ugyf2ht6aenh.cloudfront.net/stores/001/152/469/themes/idea/1-slide-1667835827987-1074366278-2175f3cb90165270313cbcb737b47eb51667836173-1400-1400.webp?1643753544);"
     ></section>
 
     <main>
@@ -51,10 +51,14 @@
               th:text="'#' + ${categoria.nombre}" th:href="@{/productos(categoria=${categoria.id})}"></a>
             </span>
           </div>
-          <form class="form-inline" >
+             <form class="form-inline" id="search-form"  th:action="@{/productos}"
+          method="get">
               <input
+                id="search-input"
                 class="form-control mr-sm-2"
                 type="text"
+                value=""
+                name="nombre"
                 placeholder="Buscar productos"
                 aria-label="Search"
               />

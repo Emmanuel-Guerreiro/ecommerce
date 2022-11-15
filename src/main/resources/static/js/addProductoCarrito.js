@@ -29,3 +29,8 @@ function agregarACarrito() {
     }
   });
 }
+
+irCarrito.addEventListener("click", function () {
+  console.log("asjdnaskj");
+  window.location.href = "/carrito/1";
+});
