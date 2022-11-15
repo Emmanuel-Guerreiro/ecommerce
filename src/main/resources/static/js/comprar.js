@@ -10,7 +10,5 @@ confirmarButton.addEventListener("click", function () {
 
   fetch(`http://localhost:9000/api/v1/facturas/pagar-carrito/${carritoId}`, {
     method: "POST",
-  })
-    .then((res) => console.log(res))
-    .then(() => (window.location.href = compraUrl));
+  }).then(() => (window.location.href = compraUrl));
 });

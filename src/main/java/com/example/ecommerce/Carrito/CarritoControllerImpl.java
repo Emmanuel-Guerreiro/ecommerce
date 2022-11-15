@@ -34,7 +34,6 @@ public class CarritoControllerImpl extends BaseControllerImpl<Carrito, Long, Car
         return this.service.save(dto);
     }
 
-    // TODO: The params should be a DTO
     @PostMapping("/{id}/item")
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
@@ -43,9 +42,6 @@ public class CarritoControllerImpl extends BaseControllerImpl<Carrito, Long, Car
             @RequestBody DTOAddItem addItem)
             throws Exception {
 
-        System.out.println(id);
-        System.out.println(addItem.getCantidad());
-        System.out.println(addItem.getProducto());
         return this.service.addItem(id, addItem);
     }
 

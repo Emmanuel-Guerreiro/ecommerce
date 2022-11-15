@@ -25,7 +25,6 @@ public class FacturaServiceImpl
 
     public Factura saveFromFactura(Long carritoId) throws Exception {
         Carrito c = this.carritoService.findById(carritoId);
-        System.out.println(c.getId());
         Factura f = carritoFromFactura(c);
 
         return repository.save(f);

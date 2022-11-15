@@ -3,13 +3,7 @@ const button = document.getElementById("add-producto-btn");
 const cantidad = document.getElementById("cantidad");
 const irCarrito = document.getElementById("ir-carrito");
 
-cantidad.addEventListener("click", function (e) {
-  console.log(e.target.value);
-});
-
 button.addEventListener("click", function () {
-  console.log();
-  console.log(cantidad.value);
   agregarACarrito();
 });
 

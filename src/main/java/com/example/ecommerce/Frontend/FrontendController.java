@@ -93,7 +93,6 @@ public class FrontendController {
     @GetMapping("/login")
     public String login(Model model) {
         try {
-
             return "login";
         } catch (Exception e) {
             return "error";
@@ -103,7 +102,6 @@ public class FrontendController {
     @GetMapping("/registro")
     public String register(Model model) {
         try {
-
             return "registro";
         } catch (Exception e) {
             return "error";

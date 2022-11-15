@@ -24,17 +24,14 @@ public class FacturaControllerImpl extends BaseControllerImpl<Factura, Long, Fac
 
     public FacturaControllerImpl(FacturaServiceImpl service) {
         super(service);
-        // TODO Auto-generated constructor stub
     }
 
-    // TODO: Revisar si esto va realmente en esta entidad. Por REST me parece que va
     // dentro de carrito
     @PostMapping("/pagar-carrito/{carritoId}")
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
     public Factura save(@PathVariable Long carritoId) throws Exception {
 
-        System.out.println(carritoId);
         return this.service.saveFromFactura(carritoId);
     }
 
