@@ -20,11 +20,6 @@ public class CategoriaServiceImpl
         super(repository);
     }
 
-    public Categoria findByNameOrCreate(String nombre) {
-        return this.repository.findByNombre(nombre)
-                .orElseGet(() -> this.create(nombre));
-    }
-
     public Categoria create(String nombre) {
         Categoria nCategoria = Categoria
                 .builder()

@@ -10,7 +10,7 @@ import lombok.Setter;
 public class DTOCreateProducto {
     private float precio;
     private String nombre;
-    private String categoria;
+    private Long categoria;
     private int stock;
     private MultipartFile imagen;
 

@@ -26,24 +26,24 @@ public class ProductoServiceImpl extends BaseServiceImpl<Producto, Long, Product
         this.categoriaService = categoriaService;
     }
 
-    // Todo: Mapper deberia llegar por DI
     @Override
-    public Producto save(DTOCreateProducto producto_nuevo) throws Exception {
+    public Producto save(DTOCreateProducto productoNuevo) throws Exception {
         try {
+            System.out.println(productoNuevo.getCategoria());
             // Convierto los campos basicos del dto a objeto
             ModelMapper mapper = new ModelMapper();
-            Producto producto = mapper.map(producto_nuevo, Producto.class);
-            System.out.println(producto_nuevo.getCategoria());
+            Producto producto = mapper.map(productoNuevo, Producto.class);
+            System.out.println(productoNuevo.getCategoria());
             // Cargo la categoria (Me aseguro que exista o la creo)
-            Categoria categoria = categoriaService.findByNameOrCreate(producto_nuevo.getCategoria());
-            producto.setCateogria(categoria);
+            Categoria categoria = categoriaService.findById(productoNuevo.getCategoria());
 
+            producto.setCateogria(categoria);
             // La imagen se va a un microservicio de nodejs y me devuelve la url de un
             // storage de firebase
             IndireccionImageStorage storage = new IndireccionImageStorage();
-            String direccionImg = storage.uploadImage(producto_nuevo.getImagen(), producto.getNombre());
-            producto.setImagen(direccionImg);
+            String direccionImg = storage.uploadImage(productoNuevo.getImagen(), producto.getNombre());
 
+            producto.setImagen(direccionImg);
             return repository.save(producto);
         } catch (Exception e) {
             throw new Exception();
@@ -78,8 +78,6 @@ public class ProductoServiceImpl extends BaseServiceImpl<Producto, Long, Product
     public List<Producto> findSimilar(Producto producto) {
         Categoria categoria = producto.getCateogria();
         List<Producto> similares = repository.findByCateogriaId(categoria.getId());
-
-        similares.removeIf(p -> p.getCateogria().getId() == categoria.getId());
 
         return similares;
     }

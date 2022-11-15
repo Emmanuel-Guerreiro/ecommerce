@@ -33,13 +33,11 @@ public abstract class BaseControllerImpl<E extends BaseEntity, ID extends Serial
         return this.service.delete(id);
     }
 
-    // Todo: Acomodar esto cuadno este implementado correctamente la paginacio
     @Override
     @GetMapping("")
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     public Page<E> getAll(Pageable pageable) throws Exception {
-        System.out.println(pageable.toString());
         return this.service.findAll(pageable);
     }
 
