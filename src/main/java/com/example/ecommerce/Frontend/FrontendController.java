@@ -19,6 +19,11 @@ import com.example.ecommerce.Frontend.DTO.DTOProductoUI;
 import com.example.ecommerce.Producto.Producto;
 import com.example.ecommerce.Producto.ProductoServiceImpl;
 import com.example.ecommerce.Producto.DTO.DTOCreateProducto;
+<<<<<<< HEAD
+=======
+import jakarta.ws.rs.QueryParam;
+
+>>>>>>> f35efe0 (arreglo busqueda con filtro)
 
 @Controller
 public class FrontendController {
