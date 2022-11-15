@@ -22,57 +22,35 @@
 
   <nav
     th:fragment="nav_bar"
-    class="navbar-expand-lg navbar navbar-dark bg-dark scrolling-navbar"
-  >
-    <div class="container">
-      <!-- Brand -->
-      <a class="navbar-brand" th:href="@{/}">
-        <strong class="blue-text">RocketPowers</strong>
-      </a>
-
-      <!-- Links -->
+    class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" th:href="@{/#}">RocketPowers</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- Left -->
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item align-middle active">
-            <a class="nav-link waves-effect" href="#">Inicio </a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Inicio</a>
           </li>
-          <li class="nav-item align-middle">
-            <a class="nav-link waves-effect" target="_blank">Productos</a>
-          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Productos
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
         </ul>
-
-        <!-- Right -->
-        <ul class="navbar-nav mr-auto nav-flex-icons">
-          <li class="nav-item align-middle">
-            <a class="nav-link waves-effect">
-              <i class="fas fa-shopping-cart"></i>
-              Carrito
-            </a>
-          </li>
-          <li class="nav-item align-middle">
-            <a
-              href="https://www.facebook.com/mdbootstrap"
-              class="nav-link waves-effect"
-              target="_blank"
-            >
-              <i class="fab fa-facebook-f"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a
-              href="https://twitter.com/MDBootstrap"
-              class="nav-link waves-effect"
-              target="_blank"
-            >
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link border rounded waves-effect" th:href="@{/login}">
-              <p><i class="fa-solid fa-user fa-xl"></i>Perfil</p>
-            </a>
-          </li>
+        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+        <form class="container-fluid justify-content-start">
+          <button class="btn btn btn-outline-secondary" type="button">Carrito</button>
+          <a class="active" th:href="@{/login}">
+          <button class="btn btn-outline-success"  type="button">Perfil</button>
+          </a>
+        </form>
         </ul>
       </div>
     </div>
