@@ -2,10 +2,10 @@ package com.example.ecommerce.Producto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -29,12 +29,12 @@ public class ProductoControllerImpl
         super(service);
     }
 
-    @PostMapping("")
+    @PostMapping(path = "", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE }, produces = {
+            MediaType.APPLICATION_JSON_VALUE })
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
-    public Producto save(@RequestBody DTOCreateProducto entity) throws Exception {
-        System.out.println(entity.toString());
-        System.out.println("______________________---------------");
+    public Producto save(DTOCreateProducto entity) throws Exception {
+
         return this.service.save(entity);
     }
 
