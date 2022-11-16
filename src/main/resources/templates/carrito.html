@@ -25,6 +25,7 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Precio u.</th>
                 <th scope="col">Cantidad</th>
+                <th scope="col">Acciones</th>
               </tr>
             </thead>
             <tbody>
@@ -35,12 +36,16 @@
                       width="50"
                       height="50"
                       class="rounded"
-                      src="https://placekitten.com/150/150"
+                      th:src="${item.producto.imagen}"
                     />
                   </td>
                   <td th:text="${item.producto.nombre}">Nombre</td>
                   <td th:text="${item.producto.precio}">Precio unitario</td>
                   <td th:text="${item.cantidad}">Cantidad</td>
+                  <td>
+                    <a th:href="@{/eliminar}" class="btn btn-danger">Eliminar</a>
+                  </td>
+
                 </tr>
               </div>
             </tbody>
