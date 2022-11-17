@@ -13,11 +13,7 @@ import javax.persistence.OneToOne;
 import com.example.ecommerce.Base.BaseEntity;
 import com.example.ecommerce.Cliente.Cliente;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.Singular;
+import lombok.*;
 
 @Entity
 @Setter
