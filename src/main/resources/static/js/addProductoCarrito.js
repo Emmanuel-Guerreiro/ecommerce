@@ -1,7 +1,7 @@
 console.log("loaded");
 const button = document.getElementById("add-producto-btn");
 const cantidad = document.getElementById("cantidad");
-const irCarrito = document.getElementById("ir-carrito");
+const ir_Carrito = document.getElementById("ir-carrito");
 
 button.addEventListener("click", function () {
   agregarACarrito();
@@ -10,8 +10,9 @@ button.addEventListener("click", function () {
 function agregarACarrito() {
   const productoId = window.location.pathname.split("/")[2];
   const item = { cantidad: cantidad.value, producto: productoId };
+  const user = JSON.parse(sessionStorage.getItem('JwtResponse'));
 
-  fetch("http://localhost:9000/api/v1/carrito/1/item", {
+  fetch("http://localhost:8080/api/v1/carrito/"+user.id+"/item", {
     method: "POST",
     body: JSON.stringify(item),
     headers: {
@@ -19,12 +20,12 @@ function agregarACarrito() {
     },
   }).then((res) => {
     if (res.status == 201) {
-      irCarrito.style.display = "inline";
+      ir_Carrito.style.display = "inline";
     }
   });
 }
 
-irCarrito.addEventListener("click", function () {
-  console.log("asjdnaskj");
-  window.location.href = "/carrito/1";
+ir_Carrito.addEventListener("click", function () {
+  const user = JSON.parse(sessionStorage.getItem('JwtResponse'));
+  window.location.href = "/carrito/"+user.id;
 });

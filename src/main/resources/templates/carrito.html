@@ -10,6 +10,8 @@
       integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
       crossorigin="anonymous"
     />
+    <script type="text/javascript" th:src="@{/js/archivo.js}"></script>
+    <script type="text/javascript" th:src="@{/js/carrito.js}"></script>
     <link th:href="@{/styles/estilos.css}" rel="stylesheet" />
   </head>
   <body>
@@ -43,10 +45,11 @@
                   <td th:text="${item.producto.precio}">Precio unitario</td>
                   <td th:text="${item.cantidad}">Cantidad</td>
                   <td>
-                    <a th:href="@{/eliminar}" class="btn btn-danger">Eliminar</a>
+                    <a class="btn btn-danger" th:onclick="|eliminarItem('${item.id}')|">Eliminar</a>
                   </td>
 
                 </tr>
+                
               </div>
             </tbody>
           </table>

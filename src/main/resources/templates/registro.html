@@ -16,6 +16,7 @@
       integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
       crossorigin="anonymous"
     />
+    <script type="text/javascript" th:src="@{/js/signin.js}"></script>
   </head>
 
   <body>
@@ -32,11 +33,20 @@
         <h2 class="mb-5">Registro</h2>
         <form class="d-flex flex-column">
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Usuario</label>
+            <label for="exampleInputEmail1" class="form-label">Nombre de usuario</label>
             <input
               type="email"
               class="form-control"
-              id="exampleInputEmail1"
+              id="fieldUsername"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="fieldEmail"
               aria-describedby="emailHelp"
             />
           </div>
@@ -50,7 +60,7 @@
               id="exampleInputPassword1"
             />
           </div>
-          <button type="submit" class="btn btn-primary align-self-center">
+          <button type="submit" class="btn btn-primary align-self-center" onclick="registrarUsuario()">
             Submit
           </button>
           <span class="d-flex flex-row mt-4"
