@@ -8,6 +8,10 @@ function getToken() {
            document.getElementById("btnLogout").style.display = "inline";
            document.getElementById("btnLogin").style.display = "none";
            document.getElementById("btnCarrito").style.display = "inline";
+           if(window.location.href == "http://localhost:8080/admin"){
+            document.getElementById("btnCarrito").style.display = "none";
+
+           }
         } 
      });
    

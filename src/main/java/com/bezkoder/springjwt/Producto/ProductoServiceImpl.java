@@ -11,6 +11,8 @@ import com.bezkoder.springjwt.Categoria.Categoria;
 import com.bezkoder.springjwt.Categoria.CategoriaServiceImpl;
 import com.bezkoder.springjwt.ImageStorage.IndireccionImageStorage;
 import com.bezkoder.springjwt.Producto.DTO.DTOCreateProducto;
+import com.bezkoder.springjwt.Producto.DTO.DTOUpdateProducto;
+import java.util.Optional;
 
 @Service
 public class ProductoServiceImpl extends BaseServiceImpl<Producto, Long, ProductoRepository>
@@ -50,11 +52,25 @@ public class ProductoServiceImpl extends BaseServiceImpl<Producto, Long, Product
         }
     }
 
+     public Producto update(DTOUpdateProducto p) throws Exception {
+        try {
+            Producto producto = this.repository.findById(p.getId()).get();
+            producto.setNombre(p.getNombre());
+            producto.setPrecio(p.getPrecio());
+            producto.setStock(p.getStock());
+            Categoria cat = this.categoriaService.findById(p.getCategoria());
+            producto.setCateogria(cat);
+            return repository.save(producto);
+        } catch (Exception e) {
+            throw new Exception();
+        }
+    }
+     
     public List<Producto> findWithFilters(
             String nombre, Long categoria) {
 
         if (nombre == null && categoria == null)
-            return repository.findAll();
+            return repository.findAllDisponibles();
 
         if (nombre == null)
             return this.findAllByCategory(categoria);
@@ -64,7 +80,7 @@ public class ProductoServiceImpl extends BaseServiceImpl<Producto, Long, Product
 
     public List<Producto> findAllByCategory(Long categoria) {
         if (categoria == null) {
-            return repository.findAll();
+            return repository.findAllDisponibles();
         }
         return repository.findByCateogriaId(categoria);
 
@@ -81,5 +97,12 @@ public class ProductoServiceImpl extends BaseServiceImpl<Producto, Long, Product
 
         return similares;
     }
-
+   
+    public Producto findById(Long id){
+        return this.repository.findById(id).get();
+    }
+    
+    public void Save(Producto p){
+        this.repository.save(p);
+    }
 }

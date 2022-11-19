@@ -11,7 +11,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.bezkoder.springjwt.Base.BaseEntity;
-import com.bezkoder.springjwt.Cliente.Cliente;
 import com.bezkoder.springjwt.models.User;
 
 import lombok.AllArgsConstructor;

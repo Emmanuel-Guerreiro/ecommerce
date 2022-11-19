@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 import com.bezkoder.springjwt.Base.BaseServiceImpl;
 import com.bezkoder.springjwt.Carrito.DTO.DTOAddItem;
 import com.bezkoder.springjwt.Carrito.DTO.DTOCreateCarrito;
-import com.bezkoder.springjwt.Cliente.Cliente;
-import com.bezkoder.springjwt.Cliente.ClienteServiceImpl;
 import com.bezkoder.springjwt.Producto.Producto;
 import com.bezkoder.springjwt.Producto.ProductoService;
 import com.bezkoder.springjwt.models.User;

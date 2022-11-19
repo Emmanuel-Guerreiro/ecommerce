@@ -167,4 +167,34 @@ public class FrontendController {
         }
     }
 
+    @GetMapping("/admin")
+    public String vistaDeAdministrador(Model model,
+            @RequestParam(name = "categoria", required = false) Long categoria) {
+        try {
+            List<Producto> productos = productoService.findAllByCategory(categoria);
+            List<Categoria> c = categoriaService.findAll();
+            List<Categoria> categorias = c.stream().limit(5).collect(Collectors.toList());
+
+            model.addAttribute("productos", productos);
+            model.addAttribute("categorias", categorias);
+            return "vista-admin";
+        } catch (Exception e) {
+            return "error";
+        }
+    }
+
+    @GetMapping("/admin/producto/editar/{id}")
+    public String editarProducto(Model model,@PathVariable Long id) {
+        try {
+            List<Categoria> categorias = categoriaService.findAll();
+            Producto p = productoService.findById(id);
+            model.addAttribute("categorias", categorias);
+            model.addAttribute("producto", p);
+            
+            return "edicion_producto";
+        } catch (Exception e) {
+            return "error";
+        }
+    }
+
 }

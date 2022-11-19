@@ -1,0 +1,29 @@
+<a
+  th:fragment="card"
+  th:href="@{/admin/producto/editar/{id}(id=${producto.id})}"
+  class="card text-black m-1"
+  style="width: 12rem; text-decoration: none; cursor: pointer"
+>
+  <!--Card image-->
+  <img
+    th:src="${producto.imagen}"
+    class="card-img-top"
+    th:alt="${producto.nombre}"
+    style="max-height: 200px; max-width: 250px"
+  />
+  <!--Card image-->
+
+  <!--Card content-->
+  <section class="card-body text-center">
+    <!--Category & Title-->
+    <strong>
+      <p class="card-title" th:text="${producto.nombre}"></p>
+    </strong>
+    <p class="card-text">
+      <strong th:text="'$'+ ${producto.precio}"></strong>
+    </p>
+  </section>
+  <!--Card content-->
+  <!--Card-->
+</a>
+

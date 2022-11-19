@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Ecommerce</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <link th:href="@{/styles/estilos.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/editar_producto.js}"></script>
+  </head>
+
+  <body>
+    <header><nav th:replace="components/navbar :: nav_bar"></header>
+    <main class="d-flex flex-column align-items-center">
+      <section class="d-flex flex-column w-75">
+        <h1>Editar producto</h1>
+        <form
+          th:object="${producto}"
+        >
+          <div class="mb-3">
+            <label for="name" class="form-label">Nombre</label>
+            <input
+              th:field="*{nombre}"
+              type="text"
+              class="form-control"
+              id="name"
+              aria-describedby="productName"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="productPrice" class="form-label">Precio</label>
+            <input
+              th:field="*{precio}"
+              type="number"
+              class="form-control"
+              id="productPrice"
+              min="0"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="stock" class="form-label">Stock</label>
+            <input
+              type="number"
+              class="form-control"
+              id="stock"
+              min="0"
+              th:field="*{stock}"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="categoria" class="form-label">Categoria</label>
+            <select
+              id="categoria"
+              class="form-select"
+              aria-label="Default select example"
+              th:field="*{cateogria.nombre}"
+              value
+            >
+              <option th:value="none" disabled selected>
+                Selecciona una opción
+              </option>
+
+              <option
+                th:each="categoria : ${categorias}"
+                th:value="${categoria.id}"
+                th:text="${categoria.nombre}"
+              >
+                Categoria
+              </option>
+            </select>
+            <div class="mb-3">
+              <label for="archivo" class="form-label">Imagen: </label>
+              <input
+                type="file"
+                class="form-control"
+                id="archivo"
+                name="archivo"
+                th:field="*{imagen}"
+              />
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" th:onclick="|actualizar('${producto.id}')|">Actualizar</button>
+          <td>
+            <a class="btn btn-danger" th:onclick="|darBaja('${producto.id}')|">Dar de baja</a>
+          </td>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
