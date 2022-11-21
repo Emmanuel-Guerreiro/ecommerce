@@ -72,6 +72,18 @@ public class FrontendController {
             return "error";
         }
     }
+    
+    @GetMapping("/productos/sin_stock")
+    public String getAllBySinStock(Model model) {
+        try {
+            List<Producto> productos = this.productoService.findAllBySinStock();
+            model.addAttribute("productos", productos);
+       
+            return "productos";
+        } catch (Exception e) {
+            return "error";
+        }
+    }
 
     @GetMapping("/productos/{id}")
     public String getOne(Model model, @PathVariable Long id) {

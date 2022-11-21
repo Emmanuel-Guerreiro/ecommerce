@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bezkoder.springjwt.Base.BaseControllerImpl;
+import com.google.gson.Gson;
+import org.springframework.http.ResponseEntity;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -30,9 +32,13 @@ public class FacturaControllerImpl extends BaseControllerImpl<Factura, Long, Fac
     @PostMapping("/pagar-carrito/{userId}")
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
-    public Factura save(@PathVariable Long userId) throws Exception {
+    public ResponseEntity<?> save(@PathVariable Long userId) throws Exception {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(this.service.saveFromFactura(userId));
+        } catch (Exception e) {
+            Gson json = new Gson();          
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(json.toJson(e.getMessage()));
+        }
 
-        return this.service.saveFromFactura(userId);
     }
-
 }

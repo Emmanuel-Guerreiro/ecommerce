@@ -15,10 +15,13 @@ public interface ProductoRepository extends BaseRepository<Producto, Long> {
     List<Producto> findByCateogriaId(@Param("id") Long id);
 
     @Query(value = "select * from producto p where p.stock>0 and p.fecha_hora_baja is null and nombre like %:name%", nativeQuery = true)
-    List<Producto> findByNombreContaining(@Param("name")String name);
+    List<Producto> findByNombreContaining(@Param("name") String name);
 
     List<Producto> findByNombreOrCateogriaId(String name, Long id);
 
     @Query(value = "select * from producto p where p.stock>0 and p.fecha_hora_baja is null", nativeQuery = true)
     List<Producto> findAllDisponibles();
+
+    @Query(value = "select * from producto p where p.stock=0 and p.fecha_hora_baja is null", nativeQuery = true)
+    List<Producto> findAllBySinStock();
 }

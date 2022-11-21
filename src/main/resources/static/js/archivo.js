@@ -43,10 +43,11 @@ function verificarRolAdmin(roles){
 
 
 function irHacia(id) {
-    if (verificarRolAdmin(getToken().roles)) {
+    
+    if(getToken()!= null && verificarRolAdmin(getToken().roles)){    
         window.location.href = url_base +"/admin/producto/editar/"+ id;
-    } else {
+    }
+    else {
         window.location.href = url_base + "/productos/" + id;
     }
-
 }
