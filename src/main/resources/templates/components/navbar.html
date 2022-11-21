@@ -18,6 +18,7 @@
       crossorigin="anonymous"
     ></script>
     <link th:href="@{/styles/estilos.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/archivo.js}"></script>
   </head>
 
   <nav th:fragment="nav_bar" class="navbar navbar-expand-lg bg-dark">
@@ -64,19 +65,34 @@
           </li>
         </ul>
 
-        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-          <form class="container-fluid justify-content-start">
-            <a class="active" th:href="@{/carrito/1}">
-            <button class="btn btn btn-outline-secondary" type="button">
+        <ul class="navbar-nav ml-auto mb-2 mb-lg-0" style="align-items:center">
+          
+            <!--  <button class="btn btn btn-outline-secondary" type="button">
               Carrito
-            </button>
-            </a>
-            <a class="active" th:href="@{/login}">
+            </button> -->
+            <a class="active" th:href="@{/login}"  id="btnLogin" >
               <button class="btn btn-outline-success" type="button">
                 Perfil
               </button>
             </a>
-          </form>
+          
+          <li class="nav-item"  id="btnCarrito">
+            <a class="nav-link waves-effect" onclick="irCarrito()">
+              <span class="clearfix d-none d-sm-inline-block"> Carrito </span>
+            </a>
+          </li>
+       
+          <li class="nav-item" id="btnLogout" onclick="cerrarSesion()">
+            
+            <a class="nav-link waves-effect" >
+              <span class="clearfix d-none d-sm-inline-block"> Cerrar Sesión </span>
+            </a>
+            
+          </li>
+          <style>
+          #btnLogout{display: none;}
+          #btnCarrito{display:none;}
+          </style>
         </ul>
       </div>
     </div>
