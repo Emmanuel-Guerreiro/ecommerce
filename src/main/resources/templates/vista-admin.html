@@ -43,6 +43,8 @@
       <div class="container">
         <h3 class="mb-3">Productos</h3>
         <button class="btn btn-primary" onclick="irNuevoProducto()">Nuevo Producto</button>
+        <a th:href="@{/productos/sin_stock}">
+        <button class="btn btn-danger" >Ver sin stock</button></a>
         <section class="w-100  justify-content-between d-flex flex-row">
           <div class="d-flex flex-row">
             Categorias:

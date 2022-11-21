@@ -105,4 +105,8 @@ public class ProductoServiceImpl extends BaseServiceImpl<Producto, Long, Product
     public void Save(Producto p){
         this.repository.save(p);
     }
+    
+    public List<Producto> findAllBySinStock(){
+        return this.repository.findAllBySinStock();
+    }
 }
