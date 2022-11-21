@@ -23,8 +23,8 @@ public class FacturaServiceImpl
         this.carritoService = carritoService;
     }
 
-    public Factura saveFromFactura(Long carritoId) throws Exception {
-        Carrito c = this.carritoService.findById(carritoId);
+    public Factura saveFromFactura(Long userId) throws Exception {
+        Carrito c = this.carritoService.findByUsuarioId(userId);
         Factura f = carritoFromFactura(c);
 
         return repository.save(f);
@@ -47,9 +47,9 @@ public class FacturaServiceImpl
             nFactura.addDetalle(detalleF);
         }
 
-        float precioTotal = 0;
+        double precioTotal = 0;
         for (DetalleFactura df : nFactura.getDetalles()) {
-            precioTotal += df.getPrecio();
+            precioTotal += df.getPrecio()*df.getCantidad();
         }
 
         nFactura.setMontoTotal(precioTotal);

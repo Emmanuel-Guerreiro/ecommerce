@@ -9,6 +9,7 @@ import javax.persistence.Table;
 
 import com.bezkoder.springjwt.Base.BaseEntity;
 import com.bezkoder.springjwt.Categoria.Categoria;
+import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -38,4 +39,5 @@ public class Producto extends BaseEntity {
     @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "fk_categoria")
     private Categoria cateogria;
+    private LocalDateTime fechaHoraBaja;
 }

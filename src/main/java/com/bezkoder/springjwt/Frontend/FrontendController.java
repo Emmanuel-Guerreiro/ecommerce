@@ -19,6 +19,7 @@ import com.bezkoder.springjwt.Frontend.DTO.DTOProductoUI;
 import com.bezkoder.springjwt.Producto.Producto;
 import com.bezkoder.springjwt.Producto.ProductoServiceImpl;
 import com.bezkoder.springjwt.Producto.DTO.DTOCreateProducto;
+import org.springframework.web.bind.annotation.CookieValue;
 
 @Controller
 public class FrontendController {
@@ -109,17 +110,21 @@ public class FrontendController {
     }
 
     @GetMapping("/carrito/{id}")
-    public String carrito(Model model, @PathVariable Long id) {
+    public String carrito(Model model, @PathVariable Long id,@CookieValue(name = "autenticacion")String token) { //CookieValue
+        
+        if(service.isAccessibleResourseForUser(id, token)){
         try {
-
             DTOCarritoUI dto = service.buildCarritoData(id);
             model.addAttribute("data", dto);
             model.addAttribute("items", dto.getDetalles());
 
             return "carrito";
+            
         } catch (Exception e) {
             return "error";
         }
+        }
+        return "error";
     }
 
     @GetMapping("/compra/{id}")
@@ -162,6 +167,36 @@ public class FrontendController {
             model.addAttribute("creado", nuevo);
 
             return "nuevo";
+        } catch (Exception e) {
+            return "error";
+        }
+    }
+
+    @GetMapping("/admin")
+    public String vistaDeAdministrador(Model model,
+            @RequestParam(name = "categoria", required = false) Long categoria) {
+        try {
+            List<Producto> productos = productoService.findAllByCategory(categoria);
+            List<Categoria> c = categoriaService.findAll();
+            List<Categoria> categorias = c.stream().limit(5).collect(Collectors.toList());
+
+            model.addAttribute("productos", productos);
+            model.addAttribute("categorias", categorias);
+            return "vista-admin";
+        } catch (Exception e) {
+            return "error";
+        }
+    }
+
+    @GetMapping("/admin/producto/editar/{id}")
+    public String editarProducto(Model model,@PathVariable Long id) {
+        try {
+            List<Categoria> categorias = categoriaService.findAll();
+            Producto p = productoService.findById(id);
+            model.addAttribute("categorias", categorias);
+            model.addAttribute("producto", p);
+            
+            return "edicion_producto";
         } catch (Exception e) {
             return "error";
         }

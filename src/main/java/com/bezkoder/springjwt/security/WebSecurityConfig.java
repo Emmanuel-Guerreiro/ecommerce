@@ -87,8 +87,9 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
         .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
         .authorizeRequests().antMatchers("/api/auth/**","/","/login","/registro","/styles/estilos.css",
-                            "/productos/**", "/js/**").permitAll()
+                            "/productos/**", "/js/**","/favicon.ico").permitAll()
         .antMatchers("/api/test/**").permitAll()
+        .antMatchers("/admin/**","/producto/admin/**").hasRole("ADMIN")
         //.antMatchers("/carrito/**").hasRole("USER")
         .anyRequest().authenticated();
     

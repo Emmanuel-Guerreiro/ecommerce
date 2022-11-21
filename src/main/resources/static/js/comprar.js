@@ -7,7 +7,7 @@ confirmarButton.addEventListener("click", function () {
   const carritoId = window.location.pathname.split("/")[2];
   const baseUrl = window.location.origin;
   const compraUrl = `${baseUrl}/compra/${carritoId}`;
-
+  
   fetch(`http://localhost:8080/api/v1/facturas/pagar-carrito/${carritoId}`, {
     method: "POST",
   }).then(() => (window.location.href = compraUrl));

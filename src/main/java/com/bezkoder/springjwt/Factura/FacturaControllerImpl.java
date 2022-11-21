@@ -27,12 +27,12 @@ public class FacturaControllerImpl extends BaseControllerImpl<Factura, Long, Fac
     }
 
     // dentro de carrito
-    @PostMapping("/pagar-carrito/{carritoId}")
+    @PostMapping("/pagar-carrito/{userId}")
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
-    public Factura save(@PathVariable Long carritoId) throws Exception {
+    public Factura save(@PathVariable Long userId) throws Exception {
 
-        return this.service.saveFromFactura(carritoId);
+        return this.service.saveFromFactura(userId);
     }
 
 }

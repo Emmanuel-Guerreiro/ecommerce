@@ -41,7 +41,7 @@ class SignUpRequest {
             }else{
                 response.json().then(json => {
                     console.log(json);
-                    alert( JSON.stringify(json))
+                    alert( JSON.parse(JSON.stringify(json)).message)
                      })
             }
         })
