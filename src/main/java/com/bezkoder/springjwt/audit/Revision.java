@@ -1,4 +1,4 @@
-package com.audit;
+package com.bezkoder.springjwt.audit;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -13,11 +13,11 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.bezkoder.springjwt.config.CustomRevisionListener;
 import org.hibernate.envers.RevisionEntity;
 import org.hibernate.envers.RevisionNumber;
 import org.hibernate.envers.RevisionTimestamp;
 
-import config.CustomRevisionListener;
 import lombok.Data;
 
 @Entity
