@@ -20,4 +20,6 @@ public interface DetalleCarritoRepository extends JpaRepository<DetalleCarrito,L
     @Transactional
     @Query(value = "delete from carrito_detalles where detalles_id = :id", nativeQuery = true)
     public void deleteFromJoinTable(@Param("id")Long id);
+    
+    public DetalleCarrito findByProductoId(Long id);
 }

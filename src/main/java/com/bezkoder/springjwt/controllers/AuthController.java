@@ -131,6 +131,6 @@ public class AuthController {
     
     this.repo.save( new Carrito(user,new ArrayList<DetalleCarrito>()));
             
-    return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
+    return ResponseEntity.ok(new MessageResponse("Usuario registrado exitosamente!"));
   }
 }

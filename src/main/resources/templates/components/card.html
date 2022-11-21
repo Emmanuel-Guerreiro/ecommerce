@@ -1,9 +1,9 @@
 <a
   th:fragment="card"
-  th:href="@{/productos/{id}(id=${producto.id})}"
   class="card text-black m-1"
   style="width: 12rem; text-decoration: none; cursor: pointer"
->
+  th:onclick="|irHacia('${producto.id}')|"
+> <!--  th:href="@{/productos/{id}(id=${producto.id})}"-->
   <!--Card image-->
   <img
     th:src="${producto.imagen}"

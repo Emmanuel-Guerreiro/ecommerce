@@ -1,3 +1,4 @@
+
 const domain = 'http://localhost:8080'
 class LoginRequest {
     username;
@@ -9,9 +10,10 @@ class LoginRequest {
     }
 }
 
+document.getElementById('btnSubmit').addEventListener('click',loginUsuario)
 
-function loginUsuario() {
-
+function loginUsuario(e) {
+    e.preventDefault();
     let usuario = document.getElementById("exampleInputEmail1");
     let pass = document.getElementById("exampleInputPassword1");
     let user = new LoginRequest(usuario.value, pass.value);

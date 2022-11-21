@@ -13,12 +13,19 @@ import com.bezkoder.springjwt.Frontend.DTO.DTOProductoUI;
 import com.bezkoder.springjwt.Producto.Producto;
 import com.bezkoder.springjwt.Producto.ProductoService;
 import com.bezkoder.springjwt.Producto.ProductoServiceImpl;
+import com.bezkoder.springjwt.models.User;
+import com.bezkoder.springjwt.repository.UserRepository;
+import com.bezkoder.springjwt.security.services.UserService;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Service
 public class FrontendService {
 
     ProductoService productoService;
     CarritoServiceImpl carritoService;
+    @Autowired
+    UserRepository repo;
 
     @Autowired
     public FrontendService(ProductoServiceImpl productoService, CarritoServiceImpl carritoService) {
@@ -60,6 +67,18 @@ public class FrontendService {
                 .build();
 
         return dto;
+    }
+
+    //Verifica que el recurso que quiere acceder un usuario le pertenezca
+    public boolean isAccessibleResourseForUser(Long id, String token) {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication()
+                .getPrincipal();
+        String usernameToken = userDetails.getUsername();
+        String usernameId = this.repo.findById(id).get().getUsername();
+        if (usernameToken.equals(usernameId)) {
+            return true;
+        }
+        return false;
     }
 
 }

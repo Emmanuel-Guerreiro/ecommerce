@@ -17,7 +17,7 @@
       crossorigin="anonymous"
     />
     <link th:href="@{/styles/estilos.css}" rel="stylesheet" />
-    <script type="text/javascript" th:src="@{/js/login.js}"></script>
+    
   </head>
 
   <body>
@@ -51,7 +51,7 @@
               id="exampleInputPassword1"
             />
           </div>
-          <button  class="btn btn-primary align-self-center" onclick="loginUsuario()">
+          <button  class="btn btn-primary align-self-center" id="btnSubmit">
             Submit
           </button>
           <span class="d-flex flex-row mt-4"
@@ -77,5 +77,6 @@
       integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
       crossorigin="anonymous"
     ></script>
+    <script type="text/javascript" th:src="@{/js/login.js}"></script>
   </body>
 </html>

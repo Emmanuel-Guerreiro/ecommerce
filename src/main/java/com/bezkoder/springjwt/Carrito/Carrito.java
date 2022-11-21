@@ -12,6 +12,7 @@ import javax.persistence.OneToOne;
 
 import com.bezkoder.springjwt.Base.BaseEntity;
 import com.bezkoder.springjwt.models.User;
+import javax.persistence.Column;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,7 +28,7 @@ import lombok.Singular;
 public class Carrito extends BaseEntity {
 
     @OneToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "fk_cliente", nullable = false)
+    @JoinColumn(name = "fk_cliente", nullable = false,unique=true)
     private User usuario;
 
     @Singular

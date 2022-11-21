@@ -19,6 +19,7 @@ import com.bezkoder.springjwt.Frontend.DTO.DTOProductoUI;
 import com.bezkoder.springjwt.Producto.Producto;
 import com.bezkoder.springjwt.Producto.ProductoServiceImpl;
 import com.bezkoder.springjwt.Producto.DTO.DTOCreateProducto;
+import org.springframework.web.bind.annotation.CookieValue;
 
 @Controller
 public class FrontendController {
@@ -109,17 +110,21 @@ public class FrontendController {
     }
 
     @GetMapping("/carrito/{id}")
-    public String carrito(Model model, @PathVariable Long id) {
+    public String carrito(Model model, @PathVariable Long id,@CookieValue(name = "autenticacion")String token) { //CookieValue
+        
+        if(service.isAccessibleResourseForUser(id, token)){
         try {
-
             DTOCarritoUI dto = service.buildCarritoData(id);
             model.addAttribute("data", dto);
             model.addAttribute("items", dto.getDetalles());
 
             return "carrito";
+            
         } catch (Exception e) {
             return "error";
         }
+        }
+        return "error";
     }
 
     @GetMapping("/compra/{id}")
