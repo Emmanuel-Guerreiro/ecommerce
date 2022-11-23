@@ -9,7 +9,7 @@ confirmarButton.addEventListener("click", function () {
   const compraUrl = `${baseUrl}/compra/${carritoId}`;
 
   fetch(
-    `http://https://ecommerce-production-5d12.up.railway.app//api/v1/facturas/pagar-carrito/${carritoId}`,
+    `https://ecommerce-production-5d12.up.railway.app/api/v1/facturas/pagar-carrito/${carritoId}`,
     {
       method: "POST",
     }

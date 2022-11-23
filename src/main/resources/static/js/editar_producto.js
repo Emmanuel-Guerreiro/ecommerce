@@ -1,4 +1,4 @@
-let url_base = "http://https://ecommerce-production-5d12.up.railway.app/";
+let url_base = "https://ecommerce-production-5d12.up.railway.app/";
 
 function darBaja(id) {
   if (confirm("¿Esta seguro que desea dar de baja este producto?")) {

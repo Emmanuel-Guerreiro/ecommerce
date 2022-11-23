@@ -20,23 +20,20 @@ function registrarUsuario() {
     "user",
   ]);
 
-  fetch(
-    "http://https://ecommerce-production-5d12.up.railway.app//api/auth/signup",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newUser),
-    }
-  ).then(function (response) {
+  fetch("https://ecommerce-production-5d12.up.railway.app/api/auth/signup", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newUser),
+  }).then(function (response) {
     console.log(response.status);
     if (response.status == 200) {
       response.json().then((json) => {
         console.log(json);
         alert("Se ha registrado exitosamente, por favor inicie sesión");
         window.location.href =
-          "http://https://ecommerce-production-5d12.up.railway.app//login";
+          "https://ecommerce-production-5d12.up.railway.app/login";
       });
     } else {
       response.json().then((json) => {

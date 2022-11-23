@@ -1,4 +1,4 @@
-let url_base = "http://https://ecommerce-production-5d12.up.railway.app/";
+let url_base = "https://ecommerce-production-5d12.up.railway.app/";
 function getToken() {
   return JSON.parse(window.sessionStorage.getItem("JwtResponse"));
 }
@@ -19,14 +19,13 @@ function cerrarSesion() {
   document.cookie =
     "autenticacion =; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
   return (window.location.href =
-    "http://https://ecommerce-production-5d12.up.railway.app//login");
+    "https://ecommerce-production-5d12.up.railway.app/login");
 }
 
 function irCarrito() {
   user = JSON.parse(sessionStorage.getItem("JwtResponse"));
   location.href =
-    "http://https://ecommerce-production-5d12.up.railway.app//carrito/" +
-    user.id;
+    "https://ecommerce-production-5d12.up.railway.app/carrito/" + user.id;
 }
 
 function verificarRolAdmin(roles) {

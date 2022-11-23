@@ -1,7 +1,7 @@
 function eliminarItem(id) {
   if (confirm("¿Esta seguro que desea eliminar este item?")) {
     fetch(
-      "http://https://ecommerce-production-5d12.up.railway.app//api/v1/carrito/detalle/eliminar/" +
+      "https://ecommerce-production-5d12.up.railway.app/api/v1/carrito/detalle/eliminar/" +
         id,
       {
         method: "POST",

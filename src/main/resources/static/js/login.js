@@ -1,4 +1,4 @@
-const domain = "http://https://ecommerce-production-5d12.up.railway.app/";
+const domain = "https://ecommerce-production-5d12.up.railway.app/";
 class LoginRequest {
   username;
   password;
