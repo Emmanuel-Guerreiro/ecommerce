@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  mysql:
+    container_name: Taller_Integrador
+    image: mysql:8
+    ports:
+      - "3306:3306"
+    volumes:
+      - ~/apps/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_PASSWORD=password
+      - MYSQL_USER=user
+      - MYSQL_DATABASE=database
