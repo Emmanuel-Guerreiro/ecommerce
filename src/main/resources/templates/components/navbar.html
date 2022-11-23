@@ -38,7 +38,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="#">Inicio</a>
+            <a class="nav-link" th:href="@{/#}">Inicio</a>
           </li>
           <li class="nav-item dropdown">
             <a
@@ -72,13 +72,19 @@
             </button> -->
             <a class="active" th:href="@{/login}"  id="btnLogin" >
               <button class="btn btn-outline-success" type="button">
-                Perfil
+                Iniciar Sesión
               </button>
             </a>
           
           <li class="nav-item"  id="btnCarrito">
             <a class="nav-link waves-effect" onclick="irCarrito()">
               <span class="clearfix d-none d-sm-inline-block"> Carrito </span>
+            </a>
+          </li>
+
+          <li class="nav-item"  id="btnFacturas" onclick="">
+            <a class="nav-link waves-effect">
+              <span class="clearfix d-none d-sm-inline-block" th:href="@{/facturas}"> Facturas </span>
             </a>
           </li>
        
