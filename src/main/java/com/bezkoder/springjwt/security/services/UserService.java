@@ -5,16 +5,16 @@
  */
 package com.bezkoder.springjwt.security.services;
 
+import org.springframework.stereotype.Service;
+
 import com.bezkoder.springjwt.models.User;
 import com.bezkoder.springjwt.repository.UserRepository;
-import java.util.Optional;
-import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
     public UserRepository repo;
-    
-    public User findById(Long id){
+
+    public User findById(Long id) {
         return this.repo.findById(id).get();
     }
 }

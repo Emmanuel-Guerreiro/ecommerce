@@ -14,12 +14,12 @@ function agregarACarrito() {
   if (user == null) {
     if (confirm("Inicie sesion para continuar con la compra")) {
       window.location.href =
-        "http://https://ecommerce-production-5d12.up.railway.app/login";
+        "https://ecommerce-production-5d12.up.railway.app/login";
     }
   }
 
   fetch(
-    "http://https://ecommerce-production-5d12.up.railway.app/api/v1/carrito/" +
+    "https://ecommerce-production-5d12.up.railway.app/api/v1/carrito/" +
       user.id +
       "/item",
     {
