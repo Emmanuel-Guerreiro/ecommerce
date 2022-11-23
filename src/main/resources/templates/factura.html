@@ -16,7 +16,10 @@
 <body>
 <nav th:replace="components/navbar :: nav_bar"></nav>
 <main class="container">
-    <h4 class="my-5">Factura nro. </h4>
+    <div style="margin-top:10vh">
+    <h4 class="my-5" style="display:inline;">Factura nro. </h4>
+    <h4 class="my-5" th:text="${factura.id}" style="display:inline;">Factura nro. </h4>
+    </div>
     <div class="d-flex flex-row justify-content-between">
         <section class="rounded col-9">
             <table class="table table-borderless">
@@ -47,6 +50,20 @@
                 </div>
                 </tbody>
             </table>
+        </section>
+        <section
+          class="d-flex flex-column shadow rounded col-3 p-4"
+          style="height: fit-content"
+        >
+          <h5>Detalle compra</h5>
+          <span class="d-flex flex-row justify-content-between"
+            ><p>Productos</p>
+            <p th:text=" ${factura.cantidadItems}"></p></span
+          >
+          <span class="d-flex flex-row justify-content-between"
+            ><p>Total</p>
+            <p th:text=" ${factura.montoTotal}">Total</p></span
+          >
         </section>
     </div>
 </main>

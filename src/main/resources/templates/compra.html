@@ -18,6 +18,7 @@
     />
     <link th:href="@{/styles/estilos.css}" rel="stylesheet" />
     <script type="text/javascript" th:src="@{/js/archivo.js}"></script>
+    <script type="text/javascript" th:src="@{/js/compra.js}"></script>
   </head>
 
   <body>
@@ -30,7 +31,7 @@
     >
       <h3>Compra exitosa</h3>
       <p>Muchas gracias por su compra!</p>
-      <a class="mx-auto mt-3" th:href="@{/factura}">Ver factura</a>
+      <a class="mx-auto mt-3" onclick="verFactura()">Ver factura</a>
     </main>
     <footer>
       <!-- place footer here -->

@@ -13,6 +13,7 @@ import com.bezkoder.springjwt.Carrito.CarritoServiceImpl;
 import com.bezkoder.springjwt.Carrito.DetalleCarrito;
 import com.bezkoder.springjwt.Producto.Producto;
 import com.bezkoder.springjwt.Producto.ProductoRepository;
+import java.util.List;
 
 @Service
 public class FacturaServiceImpl
@@ -84,6 +85,14 @@ public class FacturaServiceImpl
             }
         
         return disponible;
+    }
+    
+    public Factura findById(Long id){
+        return this.repository.findById(id).get();
+    }
+    
+    public List<Factura> findAllByUsuarioId(Long id){
+        return this.repository.findAllByUsuarioId(id);
     }
 
 }

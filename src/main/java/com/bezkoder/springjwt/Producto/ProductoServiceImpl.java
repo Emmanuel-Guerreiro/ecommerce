@@ -12,7 +12,6 @@ import com.bezkoder.springjwt.Categoria.CategoriaServiceImpl;
 import com.bezkoder.springjwt.ImageStorage.IndireccionImageStorage;
 import com.bezkoder.springjwt.Producto.DTO.DTOCreateProducto;
 import com.bezkoder.springjwt.Producto.DTO.DTOUpdateProducto;
-import java.util.Optional;
 
 @Service
 public class ProductoServiceImpl extends BaseServiceImpl<Producto, Long, ProductoRepository>
@@ -52,7 +51,7 @@ public class ProductoServiceImpl extends BaseServiceImpl<Producto, Long, Product
         }
     }
 
-     public Producto update(DTOUpdateProducto p) throws Exception {
+    public Producto update(DTOUpdateProducto p) throws Exception {
         try {
             Producto producto = this.repository.findById(p.getId()).get();
             producto.setNombre(p.getNombre());
@@ -65,7 +64,7 @@ public class ProductoServiceImpl extends BaseServiceImpl<Producto, Long, Product
             throw new Exception();
         }
     }
-     
+
     public List<Producto> findWithFilters(
             String nombre, Long categoria) {
 
@@ -97,16 +96,16 @@ public class ProductoServiceImpl extends BaseServiceImpl<Producto, Long, Product
 
         return similares;
     }
-   
-    public Producto findById(Long id){
+
+    public Producto findById(Long id) {
         return this.repository.findById(id).get();
     }
-    
-    public void Save(Producto p){
+
+    public void Save(Producto p) {
         this.repository.save(p);
     }
-    
-    public List<Producto> findAllBySinStock(){
+
+    public List<Producto> findAllBySinStock() {
         return this.repository.findAllBySinStock();
     }
 }
