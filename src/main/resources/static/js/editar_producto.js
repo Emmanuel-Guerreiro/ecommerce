@@ -62,7 +62,7 @@ function actualizar(id) {
     console.log(response.status);
     if (response.status == 200) {
       alert("El producto se ha actualizado correctamente");
-      window.location.href = base + "admin/producto/editar/" + id;
+      window.location.href = base + "/admin/producto/editar/" + id;
     } else {
       alert("Se ha producido un error, intente nuevamente");
     }
