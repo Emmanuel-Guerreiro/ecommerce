@@ -1,7 +1,9 @@
+
+let dominio= "https://ecommerce-production-5d12.up.railway.app"
 function eliminarItem(id) {
   if (confirm("¿Esta seguro que desea eliminar este item?")) {
     fetch(
-      "https://ecommerce-production-5d12.up.railway.app/api/v1/carrito/detalle/eliminar/" +
+      dominio+"/api/v1/carrito/detalle/eliminar/" +
         id,
       {
         method: "POST",

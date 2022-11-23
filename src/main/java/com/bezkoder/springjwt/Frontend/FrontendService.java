@@ -8,14 +8,17 @@ import org.springframework.stereotype.Service;
 import com.bezkoder.springjwt.Carrito.Carrito;
 import com.bezkoder.springjwt.Carrito.CarritoServiceImpl;
 import com.bezkoder.springjwt.Carrito.DetalleCarrito;
+import com.bezkoder.springjwt.Factura.DetalleFactura;
+import com.bezkoder.springjwt.Factura.Factura;
+import com.bezkoder.springjwt.Factura.FacturaServiceImpl;
 import com.bezkoder.springjwt.Frontend.DTO.DTOCarritoUI;
+import com.bezkoder.springjwt.Frontend.DTO.DTOFactura;
 import com.bezkoder.springjwt.Frontend.DTO.DTOProductoUI;
 import com.bezkoder.springjwt.Producto.Producto;
 import com.bezkoder.springjwt.Producto.ProductoService;
 import com.bezkoder.springjwt.Producto.ProductoServiceImpl;
-import com.bezkoder.springjwt.models.User;
 import com.bezkoder.springjwt.repository.UserRepository;
-import com.bezkoder.springjwt.security.services.UserService;
+import java.util.ArrayList;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -26,6 +29,8 @@ public class FrontendService {
     CarritoServiceImpl carritoService;
     @Autowired
     UserRepository repo;
+    @Autowired
+    FacturaServiceImpl facturaService;
 
     @Autowired
     public FrontendService(ProductoServiceImpl productoService, CarritoServiceImpl carritoService) {
@@ -67,6 +72,37 @@ public class FrontendService {
                 .build();
 
         return dto;
+    }
+
+    public DTOFactura buildDtoFactura(Long id) {
+        Factura f = this.facturaService.findById(id);
+
+        DTOFactura dto = DTOFactura.builder()
+                .cantidadItems(f.getDetalles().size())
+                .detalles(f.getDetalles())
+                .fecha(f.getFecha())
+                .montoTotal(f.getMontoTotal())
+                .usuario(f.getUsuario().getUsername())
+                .id(f.getId())
+                .build();
+        return dto;
+    }
+
+    public List<DTOFactura> buildListDtoFactura(Long id) {
+        List<Factura> facturas = this.facturaService.findAllByUsuarioId(id);
+        List<DTOFactura> dtoFacturas = new ArrayList<DTOFactura>();
+       for(Factura f : facturas){
+        DTOFactura dto = DTOFactura.builder()
+                .cantidadItems(f.getDetalles().size())
+                .detalles(f.getDetalles())
+                .fecha(f.getFecha())
+                .montoTotal(f.getMontoTotal())
+                .usuario(f.getUsuario().getUsername())
+                .id(f.getId())
+                .build();
+        dtoFacturas.add(dto);
+       }
+        return dtoFacturas;
     }
 
     //Verifica que el recurso que quiere acceder un usuario le pertenezca

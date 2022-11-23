@@ -1,3 +1,4 @@
+let url_base = "https://ecommerce-production-5d12.up.railway.app"
 class SignUpRequest {
   username;
   email;
@@ -20,7 +21,7 @@ function registrarUsuario() {
     "user",
   ]);
 
-  fetch("https://ecommerce-production-5d12.up.railway.app/api/auth/signup", {
+  fetch(url_base+"/api/auth/signup", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -33,7 +34,7 @@ function registrarUsuario() {
         console.log(json);
         alert("Se ha registrado exitosamente, por favor inicie sesión");
         window.location.href =
-          "https://ecommerce-production-5d12.up.railway.app/login";
+          url_base+"/login";
       });
     } else {
       response.json().then((json) => {

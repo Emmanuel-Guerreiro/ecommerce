@@ -23,7 +23,7 @@
 
   <nav th:fragment="nav_bar" class="navbar navbar-expand-lg bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" th:href="@{/#}">RocketPowers</a>
+      <a class="navbar-brand" onclick="irA()">RocketPowers</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -84,7 +84,7 @@
 
           <li class="nav-item"  id="btnFacturas" onclick="">
             <a class="nav-link waves-effect">
-              <span class="clearfix d-none d-sm-inline-block" th:href="@{/facturas}"> Facturas </span>
+              <span class="clearfix d-none d-sm-inline-block" onclick="verMisCompras()" id="btnFacturas"> Mis Compras </span>
             </a>
           </li>
        
@@ -98,6 +98,7 @@
           <style>
           #btnLogout{display: none;}
           #btnCarrito{display:none;}
+          #btnFacturas{display:none}
           </style>
         </ul>
       </div>

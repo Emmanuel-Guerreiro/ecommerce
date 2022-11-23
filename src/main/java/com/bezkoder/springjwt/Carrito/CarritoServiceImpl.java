@@ -12,8 +12,8 @@ import com.bezkoder.springjwt.Producto.Producto;
 import com.bezkoder.springjwt.Producto.ProductoService;
 import com.bezkoder.springjwt.models.User;
 import com.bezkoder.springjwt.security.services.UserService;
-import java.util.ArrayList;
 import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 
@@ -96,6 +96,7 @@ public class CarritoServiceImpl extends BaseServiceImpl<Carrito, Long, CarritoRe
         return repo.findByUsuarioId(id).get();
     }
     
+    @Transactional
     public void deleteDetalleById(Long id){
         this.repoDetalle.deleteFromJoinTable(id);
         this.repoDetalle.deleteById(id);

@@ -1,3 +1,4 @@
+let base_url = "https://ecommerce-production-5d12.up.railway.app"
 console.log("loaded");
 const button = document.getElementById("add-producto-btn");
 const cantidad = document.getElementById("cantidad");
@@ -14,12 +15,12 @@ function agregarACarrito() {
   if (user == null) {
     if (confirm("Inicie sesion para continuar con la compra")) {
       window.location.href =
-        "https://ecommerce-production-5d12.up.railway.app/login";
+        base_url+"/login";
     }
   }
-
+//https://ecommerce-production-5d12.up.railway.app
   fetch(
-    "https://ecommerce-production-5d12.up.railway.app/api/v1/carrito/" +
+    base_url+"/api/v1/carrito/" +
       user.id +
       "/item",
     {

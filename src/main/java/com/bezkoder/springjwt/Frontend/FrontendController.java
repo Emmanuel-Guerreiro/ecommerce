@@ -3,7 +3,6 @@ package com.bezkoder.springjwt.Frontend;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.bezkoder.springjwt.Factura.Factura;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +14,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bezkoder.springjwt.Categoria.Categoria;
 import com.bezkoder.springjwt.Categoria.CategoriaServiceImpl;
+import com.bezkoder.springjwt.Factura.DetalleFactura;
+import com.bezkoder.springjwt.Factura.Factura;
+import com.bezkoder.springjwt.Factura.FacturaServiceImpl;
 import com.bezkoder.springjwt.Frontend.DTO.DTOCarritoUI;
+import com.bezkoder.springjwt.Frontend.DTO.DTOFactura;
 import com.bezkoder.springjwt.Frontend.DTO.DTOProductoUI;
 import com.bezkoder.springjwt.Producto.Producto;
 import com.bezkoder.springjwt.Producto.ProductoServiceImpl;
@@ -164,20 +167,23 @@ public class FrontendController {
         }
     }
 
-    @GetMapping("/facturas")
-    public String mostrarFacturas(Model model) {
+    @GetMapping("/compras/{id}")
+    public String mostrarFacturas(Model model,@PathVariable("id") Long idUser) {
         try {
-
-            return "facturas";
+            List<DTOFactura> facturas = this.service.buildListDtoFactura(idUser);
+            model.addAttribute("facturas", facturas);
+            return "misCompras";
         } catch (Exception e) {
             return "error";
         }
     }
 
-    @GetMapping("/factura")
-    public String mostrarFactura(Model model) {
+    @GetMapping("/factura/{id}")
+    public String mostrarFactura(Model model,@PathVariable("id") Long idFactura) {
         try {
-
+           DTOFactura dtoFactura = this.service.buildDtoFactura(idFactura);
+           model.addAttribute("factura", dtoFactura);
+           model.addAttribute("items", dtoFactura.getDetalles());
             return "factura";
         } catch (Exception e) {
             return "error";

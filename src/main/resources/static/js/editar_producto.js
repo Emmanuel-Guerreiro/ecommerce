@@ -1,8 +1,9 @@
-let url_base = "https://ecommerce-production-5d12.up.railway.app/";
+
+let base = "https://ecommerce-production-5d12.up.railway.app";
 
 function darBaja(id) {
   if (confirm("¿Esta seguro que desea dar de baja este producto?")) {
-    fetch(url_base + "/producto/admin/darBaja/" + id, {
+    fetch(base + "/producto/admin/darBaja/" + id, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -11,7 +12,7 @@ function darBaja(id) {
       console.log(response.status);
       if (response.status == 200) {
         alert("El producto se ha dado de baja");
-        window.location.href = url_base + "/admin";
+        window.location.href = base + "/admin";
       } else {
         alert("Se ha producido un error, intente nuevamente");
       }
@@ -43,7 +44,7 @@ function actualizar(id) {
   let stock = document.getElementById("stock");
   let categoria = document.getElementById("categoria");
 
-  fetch(url_base + "/producto/admin/actualizar", {
+  fetch(base + "/producto/admin/actualizar", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -61,9 +62,10 @@ function actualizar(id) {
     console.log(response.status);
     if (response.status == 200) {
       alert("El producto se ha actualizado correctamente");
-      window.location.href = url_base + "admin/producto/editar/" + id;
+      window.location.href = base + "admin/producto/editar/" + id;
     } else {
       alert("Se ha producido un error, intente nuevamente");
     }
   });
 }
+
