@@ -3,6 +3,7 @@ package com.bezkoder.springjwt.Frontend;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.bezkoder.springjwt.Factura.Factura;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -158,6 +159,26 @@ public class FrontendController {
             model.addAttribute("producto", new DTOCreateProducto());
 
             return "nuevo";
+        } catch (Exception e) {
+            return "error";
+        }
+    }
+
+    @GetMapping("/facturas")
+    public String mostrarFacturas(Model model) {
+        try {
+
+            return "facturas";
+        } catch (Exception e) {
+            return "error";
+        }
+    }
+
+    @GetMapping("/factura")
+    public String mostrarFactura(Model model) {
+        try {
+
+            return "factura";
         } catch (Exception e) {
             return "error";
         }
